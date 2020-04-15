@@ -141,15 +141,15 @@
 					<a href="index.html">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
-				<li><a href="quanly.html">Quản lý</a></li>
+				<li><a href="hoadon.html">Hóa đơn</a></li>
 			</ul>
 
 			
 	
-			<div class="row-fluid sortable">		
+            <div class="row-fluid sortable">		
 				<div class="box span12">
 					<div class="box-header" data-original-title>
-						<h2><i class="halflings-icon white user"></i><span class="break"></span>Thông tin quản lý</h2>
+						<h2><i class="halflings-icon white user"></i><span class="break"></span>Thêm hóa đơn</h2>
 						<div class="box-icon">
 							<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
 							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
@@ -160,38 +160,46 @@
 						<form method="post">
                             <table>
                                 <tr> 
-                                    <td>Mã quản lý </td>
-                                    <td> <input type="text" name="Maql" value="">
+                                    <td>Mã HĐ</td>
+                                    <td> <input type="text" name="MaHD" value="">
                                     </td>
                                 </tr>
 
                                 
                                 <tr>
-                                    <td>Tên quản lý </td>
-                                    <td> <input type="text" name="tenquanly" value=""></td>
+                                    <td>Mã KH </td>
+                                    <td> <input type="text" name="MaKh" value=""></td>
 								</tr>
 								<tr>
-                                    <td>Ngày sinh</td>
-                                    <td> <input type="date" name="ngaysinh" value= ""></td>
+                                    <td>Chỉ số cũ</td>
+                                    <td> <input type="text" name="chisocu" value= ""></td>
                                 </tr>
                                 <tr>
-                                    <td>Địa chỉ </td>
-                                    <td> <input type="text" name="diachi" value=""></td>
+                                    <td>Chỉ số mới </td>
+                                    <td> <input type="text" name="chisomoi" value=""></td>
                                 </tr>
                                 <tr>
-                                    <td>Số điện thoại </td>
-                                    <td> <input type="text" name="SDT" value=""></td>
+                                    <td>Số Kwh</td>
+                                    <td> <input type="text" name="sokwh" value=""></td>
+                                </tr>
+                                <tr>
+                                    <td>Ngày thanh toán</td>
+                                    <td><input type="text" name="ngaythanhtoan"></td>
+                                </tr>
+                                <tr>
+                                    <td>Tổng tiền</td>
+                                    <td ><input type="text" name="tongtien"></td>
                                 </tr>
                             
                                 <tr><td></td>
                                     <td colspan=2>
-                                    <input id="btnChapNhan" type="submit" value="Sửa thông tin" name="sua"/>
+                                    <input id="btnChapNhan" type="submit" value="Thêm hóa đơn" name="them"/>
                                     </td>
                                     
                                 </tr>
                                 <tr>
                                     <td colspan=2>
-                                    <a href="quanly.html">Quay lại trang quản lý</a>
+                                    <a href="hoadon.html">Quay lại trang hóa đơn</a>
                                     
                                     </td></tr>
                             </table>
@@ -300,5 +308,3 @@
 	
 </body>
 </html>
-
-
