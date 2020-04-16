@@ -30,8 +30,8 @@
                                 <label for="password">Mật khẩu:</label><br>
                                 <input type="password" name="password" placeholder="mật khẩu" id="password" class="form-control">
                             </div>
-                            <div class="form-group">
-                                <input type="submit" name="submit" class="btn btn-primary btn-md" value="Đăng nhập" onclick="location.href=''">
+                            <div class="form-group">                        
+                                <button type="submit" id ="btndangnhap" class="btn btn-primary" name="btn_dangnhap" >Đăng nhập</button>
                             </div>
                             <div class="text-right phai">
                                 <a href="" id="forgot-password" class=" text-danger ">Quên mật khẩu</a>
@@ -43,7 +43,40 @@
                 </div>
             </div>
         </div>
+        <div id="error" style="color: red; margin-left:300px; "></div>
     </div>
+    <script type="text/javascript">
+		$("#btndangnhap").click(function() {
+			var username=$("#username").val();
+            var password=$("#password").val();
+            var error = $("#error");
+      
+		if (username == "") {
+			error.html("Tên đăng nhập không được để trống");
+			return false;
+		}
+		
+		if (password == "") {
+			error.html("Mật khẩu không được để trống");
+			return false;
+		}
+			$.ajax({
+				url: 'xulydangnhap.php',
+				type: 'POST',
+				dataType: 'html',
+				data: {username:username ,password:password},
+				success:function(response){
+					if(response== 1)
+					{
+						window.location="role.php";
+					}
+          else {error.html("Mật khẩu hoặc tài khoản không chính xác !");}
+
+				}
+			})		
+		});
+		
+	</script> 
 </body>
 
 </html>
