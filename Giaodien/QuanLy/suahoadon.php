@@ -113,12 +113,12 @@
 			<div id="sidebar-left" class="span2">
 				<div class="nav-collapse sidebar-nav">
 					<ul class="nav nav-tabs nav-stacked main-menu">
-						<li><a href="index.html"><i class="icon-home"></i><span class="hidden-tablet">Trang chủ</span></a></li>	
-						<li><a href="taikhoan.html"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Tài khoản</span></a></li>
-						<li><a href="quanly.html"><i class="icon-tasks"></i><span class="hidden-tablet">Quản lý</span></a></li>
+						<li><a href="index.php"><i class="icon-home"></i><span class="hidden-tablet">Trang chủ</span></a></li>	
+						<li><a href="taikhoan.php"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Tài khoản</span></a></li>
+						<li><a href="quanly.php"><i class="icon-tasks"></i><span class="hidden-tablet">Quản lý</span></a></li>
 						<li><a href="form.html"><i class="icon-edit"></i><span class="hidden-tablet"> Forms</span></a></li>
-						<li><a href="hoadon.html"><i class="icon-align-justify"></i><span class="hidden-tablet">Hóa đơn</span></a></li>
-						<li><a href="khachhang.html"><i class="icon-folder-open"></i><span class="hidden-tablet">Khách hàng</span></a></li>
+						<li><a href="hoadon.php"><i class="icon-align-justify"></i><span class="hidden-tablet">Hóa đơn</span></a></li>
+						<li><a href="khachhang.php"><i class="icon-folder-open"></i><span class="hidden-tablet">Khách hàng</span></a></li>
 					</ul>
 				</div>
 			</div>
@@ -138,60 +138,75 @@
 			<ul class="breadcrumb">
 				<li>
 					<i class="icon-home"></i>
-					<a href="index.html">Home</a> 
+					<a href="index.php">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
-				<li><a href="taikhoan.html">Tài khoản</a></li>
+				<li><a href="hoadon.php">Hóa đơn</a></li>
 			</ul>
 
 			
 	
-				
-<div class="row-fluid sortable">		
-    <div class="box span12">
-        <div class="box-header" data-original-title>
-            <h2><i class="halflings-icon white user"></i><span class="break"></span>Thêm tài khoản</h2>
-            <div class="box-icon">
-                <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
-                <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
-                <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
-            </div>
-        </div>
-        <div class="box-content">
-            <form method="post">
-                <table>
-                    <tr> 
-                        <td>Tên đăng nhập </td>
-                        <td> <input type="text" name="tendangnhap" value="">
-                        </td>
-                    </tr>
+			<div class="row-fluid sortable">		
+				<div class="box span12">
+					<div class="box-header" data-original-title>
+						<h2><i class="halflings-icon white user"></i><span class="break"></span>Thông tin hóa đơn</h2>
+						<div class="box-icon">
+							<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+							<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+						</div>
+					</div>
+					<div class="box-content">
+						<form method="post">
+                            <table>
+                                <tr> 
+                                    <td>Mã HĐ</td>
+                                    <td> <input type="text" name="MaHD" value="">
+                                    </td>
+                                </tr>
 
-                    <tr>
-                        <td>Mật khẩu </td>
-                        <td> <input type="text" name="matkhau" value= ""></td>
-                    </tr>
-                    <tr>
-                        <td>Nhập lại mật khẩu </td>
-                        <td> <input type="text" name="matkhau" value= ""></td>
-                    </tr>
-                    <tr>
-                        <td>Role </td>
-                        <td> <input type="text" name="role" value=""></td>
-                    </tr>
-                    
-                    <tr><td></td>
-                        <td colspan=2>
-                        <input id="btnChapNhan" type="submit" value="Thêm tài khoản" name="them"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><a href="taikhoan.html">Quay lại trang tài khoản</a></td>
-                    </tr>
-                </table>
-                
-            </form>
-
-</div><!--/row-->
+                                
+                                <tr>
+                                    <td>Mã KH </td>
+                                    <td> <input type="text" name="MaKh" value=""></td>
+								</tr>
+								<tr>
+                                    <td>Chỉ số cũ</td>
+                                    <td> <input type="text" name="chisocu" value= ""></td>
+                                </tr>
+                                <tr>
+                                    <td>Chỉ số mới </td>
+                                    <td> <input type="text" name="chisomoi" value=""></td>
+                                </tr>
+                                <tr>
+                                    <td>Số Kwh</td>
+                                    <td> <input type="text" name="sokwh" value=""></td>
+                                </tr>
+                                <tr>
+                                    <td>Ngày thanh toán</td>
+                                    <td><input type="text" name="ngaythanhtoan"></td>
+                                </tr>
+                                <tr>
+                                    <td>Tổng tiền</td>
+                                    <td ><input type="text" name="tongtien"></td>
+                                </tr>
+                            
+                                <tr><td></td>
+                                    <td colspan=2>
+                                    <input id="btnChapNhan" type="submit" value="Sửa thông tin" name="sua"/>
+                                    </td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td colspan=2>
+                                    <a href="hoadon.php">Quay lại trang hóa đơn</a>
+                                    
+                                    </td></tr>
+                            </table>
+                            
+                        </form>
+			
+			</div><!--/row-->
 	
 		
 

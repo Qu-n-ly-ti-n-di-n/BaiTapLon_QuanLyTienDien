@@ -113,12 +113,12 @@
 			<div id="sidebar-left" class="span2">
 				<div class="nav-collapse sidebar-nav">
 					<ul class="nav nav-tabs nav-stacked main-menu">
-						<li><a href="index.html"><i class="icon-home"></i><span class="hidden-tablet">Trang chủ</span></a></li>	
-						<li><a href="taikhoan.html"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Tài khoản</span></a></li>
-						<li><a href="quanly.html"><i class="icon-tasks"></i><span class="hidden-tablet">Quản lý</span></a></li>
-						<li><a href="form.html"><i class="icon-edit"></i><span class="hidden-tablet"> Forms</span></a></li>
-						<li><a href="hoadon.html"><i class="icon-align-justify"></i><span class="hidden-tablet">Hóa đơn</span></a></li>
-						<li><a href="khachhang.html"><i class="icon-folder-open"></i><span class="hidden-tablet">Khách hàng</span></a></li>
+						<li><a href="index.php"><i class="icon-home"></i><span class="hidden-tablet">Trang chủ</span></a></li>	
+						<li><a href="taikhoan.php"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Tài khoản</span></a></li>
+						<li><a href="quanly.php"><i class="icon-tasks"></i><span class="hidden-tablet">Quản lý</span></a></li>
+						<li><a href="form.php"><i class="icon-edit"></i><span class="hidden-tablet"> Forms</span></a></li>
+						<li><a href="hoadon.php"><i class="icon-align-justify"></i><span class="hidden-tablet">Hóa đơn</span></a></li>
+						<li><a href="khachhang.php"><i class="icon-folder-open"></i><span class="hidden-tablet">Khách hàng</span></a></li>
 					</ul>
 				</div>
 			</div>
@@ -138,15 +138,15 @@
 			<ul class="breadcrumb">
 				<li>
 					<i class="icon-home"></i>
-					<a href="index.html">Home</a> 
+					<a href="index.php">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
-				<li><a href="quanly.html">Quản lý</a></li>
+				<li><a href="hoadon.php">Hóa đơn</a></li>
 			</ul>
 
 			
 	
-			<div class="row-fluid sortable">		
+            <div class="row-fluid sortable">		
 				<div class="box span12">
 					<div class="box-header" data-original-title>
 						<h2><i class="halflings-icon white user"></i><span class="break"></span>Thêm hóa đơn</h2>
@@ -160,38 +160,46 @@
 						<form method="post">
                             <table>
                                 <tr> 
-                                    <td>Mã quản lý </td>
-                                    <td> <input type="text" name="MaQL" value="">
+                                    <td>Mã HĐ</td>
+                                    <td> <input type="text" name="MaHD" value="">
                                     </td>
                                 </tr>
 
                                 
                                 <tr>
-                                    <td>Tên quản lý </td>
-                                    <td> <input type="text" name="tenquanly" value=""></td>
+                                    <td>Mã KH </td>
+                                    <td> <input type="text" name="MaKh" value=""></td>
 								</tr>
 								<tr>
-                                    <td>Ngày sinh</td>
-                                    <td> <input type="date" name="ngaysinh" value= ""></td>
+                                    <td>Chỉ số cũ</td>
+                                    <td> <input type="text" name="chisocu" value= ""></td>
                                 </tr>
                                 <tr>
-                                    <td>Địa chỉ </td>
-                                    <td> <input type="text" name="diachi" value=""></td>
+                                    <td>Chỉ số mới </td>
+                                    <td> <input type="text" name="chisomoi" value=""></td>
                                 </tr>
                                 <tr>
-                                    <td>Số điện thoại </td>
-                                    <td> <input type="text" name="sdt" value=""></td>
+                                    <td>Số Kwh</td>
+                                    <td> <input type="text" name="sokwh" value=""></td>
+                                </tr>
+                                <tr>
+                                    <td>Ngày thanh toán</td>
+                                    <td><input type="text" name="ngaythanhtoan"></td>
+                                </tr>
+                                <tr>
+                                    <td>Tổng tiền</td>
+                                    <td ><input type="text" name="tongtien"></td>
                                 </tr>
                             
                                 <tr><td></td>
                                     <td colspan=2>
-                                    <input id="btnChapNhan" type="submit" value="Thêm quản lý" name="them"/>
+                                    <input id="btnChapNhan" type="submit" value="Thêm hóa đơn" name="them"/>
                                     </td>
                                     
                                 </tr>
                                 <tr>
                                     <td colspan=2>
-                                    <a href="quanly.html">Quay lại trang quản lý</a>
+                                    <a href="hoadon.html">Quay lại trang hóa đơn</a>
                                     
                                     </td></tr>
                             </table>
@@ -300,5 +308,3 @@
 	
 </body>
 </html>
-
-

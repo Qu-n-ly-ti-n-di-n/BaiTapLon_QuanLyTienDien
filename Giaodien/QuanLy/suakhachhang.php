@@ -112,13 +112,12 @@
 			<!-- start: Main Menu -->
 			<div id="sidebar-left" class="span2">
 				<div class="nav-collapse sidebar-nav">
-					<ul class="nav nav-tabs nav-stacked main-menu">
-						<li><a href="index.html"><i class="icon-home"></i><span class="hidden-tablet">Trang chủ</span></a></li>	
-						<li><a href="taikhoan.html"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Tài khoản</span></a></li>
-						<li><a href="quanly.html"><i class="icon-tasks"></i><span class="hidden-tablet">Quản lý</span></a></li>
-						<li><a href="form.html"><i class="icon-edit"></i><span class="hidden-tablet"> Forms</span></a></li>
-						<li><a href="hoadon.html"><i class="icon-align-justify"></i><span class="hidden-tablet">Hóa đơn</span></a></li>
-						<li><a href="khachhang.html"><i class="icon-folder-open"></i><span class="hidden-tablet">Khách hàng</span></a></li>
+				<ul class="nav nav-tabs nav-stacked main-menu">
+						<li><a href="index.php"><i class="icon-home"></i><span class="hidden-tablet">Trang chủ</span></a></li>	
+						<li><a href="taikhoan.php"><i class="icon-envelope"></i><span class="hidden-tablet"> Tài khoản </span></a></li>
+						<li><a href="quanly.php"><i class="icon-tasks"></i><span class="hidden-tablet">Quản lý</span></a></li>
+						<li><a href="hoadon.php"><i class="icon-align-justify"></i><span class="hidden-tablet">Hóa đơn</span></a></li>
+						<li><a href="khachhang.php"><i class="icon-folder-open"></i><span class="hidden-tablet">Khách hàng</span></a></li>
 					</ul>
 				</div>
 			</div>
@@ -141,15 +140,15 @@
 					<a href="index.html">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
-				<li><a href="hoadon.html">Hóa đơn</a></li>
+				<li><a href="khachhang.html">Khách hàng</a></li>
 			</ul>
 
 			
 	
-			<div class="row-fluid sortable">		
+            <div class="row-fluid sortable">		
 				<div class="box span12">
 					<div class="box-header" data-original-title>
-						<h2><i class="halflings-icon white user"></i><span class="break"></span>Thông tin hóa đơn</h2>
+						<h2><i class="halflings-icon white user"></i><span class="break"></span>Thông tin khách hàng</h2>
 						<div class="box-icon">
 							<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
 							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
@@ -160,36 +159,30 @@
 						<form method="post">
                             <table>
                                 <tr> 
-                                    <td>Mã HĐ</td>
-                                    <td> <input type="text" name="MaHD" value="">
+                                    <td>Mã KH </td>
+                                    <td> <input type="text" name="MaKH" value="">
                                     </td>
                                 </tr>
 
                                 
                                 <tr>
-                                    <td>Mã KH </td>
-                                    <td> <input type="text" name="MaKh" value=""></td>
+                                    <td>Tên khách hàng </td>
+                                    <td> <input type="text" name="tenkhachhang" value=""></td>
 								</tr>
 								<tr>
-                                    <td>Chỉ số cũ</td>
-                                    <td> <input type="text" name="chisocu" value= ""></td>
+                                    <td>Ngày sinh</td>
+                                    <td> <input type="date" name="ngaysinh" value= ""></td>
                                 </tr>
                                 <tr>
-                                    <td>Chỉ số mới </td>
-                                    <td> <input type="text" name="chisomoi" value=""></td>
+                                    <td>Địa chỉ </td>
+                                    <td> <input type="text" name="diachi" value=""></td>
                                 </tr>
                                 <tr>
-                                    <td>Số Kwh</td>
-                                    <td> <input type="text" name="sokwh" value=""></td>
+                                    <td>Số điện thoại </td>
+                                    <td> <input type="text" name="SDT" value=""></td>
                                 </tr>
-                                <tr>
-                                    <td>Ngày thanh toán</td>
-                                    <td><input type="text" name="ngaythanhtoan"></td>
-                                </tr>
-                                <tr>
-                                    <td>Tổng tiền</td>
-                                    <td ><input type="text" name="tongtien"></td>
-                                </tr>
+                                <tr><td>Số thẻ</td>
+                                    <td> <input type="text" name="Sothe" value=""></td></tr>
                             
                                 <tr><td></td>
                                     <td colspan=2>
@@ -199,8 +192,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan=2>
-                                    <a href="hoadon.html">Quay lại trang hóa đơn</a>
-                                    
+                                    <a href="khachhang.html">Quay lại trang khách hàng</a>
                                     </td></tr>
                             </table>
                             
@@ -308,5 +300,3 @@
 	
 </body>
 </html>
-
-

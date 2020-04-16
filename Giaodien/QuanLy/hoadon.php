@@ -113,12 +113,11 @@
 			<div id="sidebar-left" class="span2">
 				<div class="nav-collapse sidebar-nav">
 					<ul class="nav nav-tabs nav-stacked main-menu">
-						<li><a href="index.html"><i class="icon-home"></i><span class="hidden-tablet">Trang chủ</span></a></li>	
-						<li><a href="taikhoan.html"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Tài khoản</span></a></li>
-						<li><a href="quanly.html"><i class="icon-tasks"></i><span class="hidden-tablet">Quản lý</span></a></li>
-						<li><a href="form.html"><i class="icon-edit"></i><span class="hidden-tablet"> Forms</span></a></li>
-						<li><a href="hoadon.html"><i class="icon-align-justify"></i><span class="hidden-tablet">Hóa đơn</span></a></li>
-						<li><a href="khachhang.html"><i class="icon-folder-open"></i><span class="hidden-tablet">Khách hàng</span></a></li>
+						<li><a href="index.php"><i class="icon-home"></i><span class="hidden-tablet">Trang chủ</span></a></li>	
+						<li><a href="taikhoan.php"><i class="icon-envelope"></i><span class="hidden-tablet"> Tài khoản </span></a></li>
+						<li><a href="quanly.php"><i class="icon-tasks"></i><span class="hidden-tablet">Quản lý</span></a></li>
+						<li><a href="hoadon.php"><i class="icon-align-justify"></i><span class="hidden-tablet">Hóa đơn</span></a></li>
+						<li><a href="khachhang.php"><i class="icon-folder-open"></i><span class="hidden-tablet">Khách hàng</span></a></li>
 					</ul>
 				</div>
 			</div>
@@ -138,75 +137,71 @@
 			<ul class="breadcrumb">
 				<li>
 					<i class="icon-home"></i>
-					<a href="index.html">Home</a> 
+					<a href="index.php">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
-				<li><a href="hoadon.html">Hóa đơn</a></li>
+				<li><a href="hoadon.php">Hóa đơn</a></li>
 			</ul>
 
 			
 	
-            <div class="row-fluid sortable">		
-				<div class="box span12">
-					<div class="box-header" data-original-title>
-						<h2><i class="halflings-icon white user"></i><span class="break"></span>Thêm hóa đơn</h2>
-						<div class="box-icon">
-							<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
-							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
-							<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+				<div class="row-fluid sortable">		
+					<div class="box span12">
+						<div class="box-header" data-original-title>
+							<h2><i class="icon-align-justify"></i><span class="break"></span>Hóa đơn</h2>
+							<div class="box-icon">
+								<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+								<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+								<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+							</div>
 						</div>
-					</div>
-					<div class="box-content">
-						<form method="post">
-                            <table>
-                                <tr> 
-                                    <td>Mã HĐ</td>
-                                    <td> <input type="text" name="MaHD" value="">
-                                    </td>
-                                </tr>
-
-                                
-                                <tr>
-                                    <td>Mã KH </td>
-                                    <td> <input type="text" name="MaKh" value=""></td>
-								</tr>
+						<div class="box-content">
+							<table class="table table-striped table-bordered bootstrap-datatable datatable">
+							  <thead>
+								  <tr>
+									  <th>Mã HĐ</th>
+									  <th>Mã KH</th>
+									  <th>Chỉ số cũ</th>
+									  <th>Chỉ số mới</th>
+									  <th>Số Kwh</th>
+									  <th>Ngày thanh toán</th>
+									  <th>Tổng tiền</th>
+									  <th>Trạng thái</th>
+                                      <th>Chức năng</th>
+								  </tr>
+							  </thead>   
+							  <tbody>
 								<tr>
-                                    <td>Chỉ số cũ</td>
-                                    <td> <input type="text" name="chisocu" value= ""></td>
-                                </tr>
-                                <tr>
-                                    <td>Chỉ số mới </td>
-                                    <td> <input type="text" name="chisomoi" value=""></td>
-                                </tr>
-                                <tr>
-                                    <td>Số Kwh</td>
-                                    <td> <input type="text" name="sokwh" value=""></td>
-                                </tr>
-                                <tr>
-                                    <td>Ngày thanh toán</td>
-                                    <td><input type="text" name="ngaythanhtoan"></td>
-                                </tr>
-                                <tr>
-                                    <td>Tổng tiền</td>
-                                    <td ><input type="text" name="tongtien"></td>
-                                </tr>
-                            
-                                <tr><td></td>
-                                    <td colspan=2>
-                                    <input id="btnChapNhan" type="submit" value="Thêm hóa đơn" name="them"/>
+									<td>1</td>
+									<td class="center">abc</td>
+									<td class="center">2012/01/01</td>
+									<td class="center">Nghệ an</td>
+									<td class="center">0123456</td>
+									<td class="center">132</td>
+									<td class="center">0123</td>
+									<td class="center">Đóng/Chưa đóng </td>
+									<td class="center">
+										<a class="btn btn-success" href="suahoadon.php">
+											<i class="halflings-icon white zoom-in"></i>  
+										</a>
+										<a class="btn btn-info" href="suahoadon.php">
+											<i class="halflings-icon white edit"></i>  
+										</a>
+										<a class="btn btn-danger" href="#">
+											<i class="halflings-icon white trash"></i> 
+										</a>
                                     </td>
                                     
-                                </tr>
-                                <tr>
-                                    <td colspan=2>
-                                    <a href="hoadon.html">Quay lại trang hóa đơn</a>
-                                    
-                                    </td></tr>
-                            </table>
-                            
-                        </form>
-			
-			</div><!--/row-->
+								</tr>
+								
+                              </tbody>
+                              
+						  </table>     
+						  <input id="btnhoadon" class="btn btn-primary" type="submit" value="Thêm hóa đơn" name="them"/>
+						</div>
+					</div><!--/span-->
+				
+				</div><!--/row-->
 	
 		
 
