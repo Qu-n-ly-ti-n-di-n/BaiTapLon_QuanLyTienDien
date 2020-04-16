@@ -199,7 +199,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan=2>
-                                    <a href="hoadon.html">Quay lại trang hóa đơn</a>
+                                    <a href="hoadon.php">Quay lại trang hóa đơn</a>
                                     
                                     </td></tr>
                             </table>
