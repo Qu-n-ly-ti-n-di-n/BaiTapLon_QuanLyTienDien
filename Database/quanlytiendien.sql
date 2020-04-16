@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 16, 2020 lúc 05:45 AM
+-- Thời gian đã tạo: Th4 16, 2020 lúc 11:45 AM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.2.29
 
@@ -48,6 +48,7 @@ CREATE TABLE `khachhang` (
   `MaKH` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Mã khách hàng',
   `TenKH` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Tên khách hàng',
   `NgaySinh` date NOT NULL COMMENT 'Ngày sinh',
+  `Email` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `DiaChi` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Địa chỉ',
   `SDT` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Số điện thoại',
   `MaThe` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Mã thẻ ngân hàng'
