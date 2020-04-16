@@ -137,10 +137,10 @@
 			<ul class="breadcrumb">
 				<li>
 					<i class="icon-home"></i>
-					<a href="index.html">Home</a> 
+					<a href="index.php">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
-				<li><a href="taikhoan.html">Tài khoản</a></li>
+				<li><a href="taikhoan.php">Tài khoản</a></li>
 			</ul>
 
 			
@@ -171,10 +171,10 @@
 									<td class="center">2012/01/01</td>
 									<td class="center">Member</td>
 									<td class="center">
-										<a class="btn btn-success" href="suataikhoan.html">
+										<a class="btn btn-success" href="suataikhoan.php">
 											<i class="halflings-icon white zoom-in"></i>  
 										</a>
-										<a class="btn btn-info" href="suataikhoan.html">
+										<a class="btn btn-info" href="suataikhoan.php">
 											<i class="halflings-icon white edit"></i>  
 										</a>
 										<a class="btn btn-danger" href="#">
@@ -185,7 +185,10 @@
 								
 							  </tbody>
                           </table>    
-                          <input id="btnthemtaikhoan" class="btn btn-primary" type="submit" value="Thêm tài khoản" name="sua"/>        
+						  <form action="themtaikhoan.php">
+						  <input id="btnthemtaikhoan" class="btn btn-primary" type="submit" value="Thêm tài khoản">
+						  </form>
+                                  
 						</div>
 					</div><!--/span-->
 				

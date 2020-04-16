@@ -194,7 +194,9 @@
 								
 							  </tbody>
                           </table>         
-                          <input id="btnkhachhang" class="btn btn-primary" type="submit" value="Thêm khách hàng" name="them" href='thekhachhang.php'>   
+                          <form action="themkhachhang.php">
+						  <input id="btnkhachhang" class="btn btn-primary" type="submit" value="Thêm khách hàng" >
+						  </form> 						  	 
 						</div>
 					</div><!--/span-->
 				
@@ -241,7 +243,7 @@
 	</footer>
 	
 	<!-- start: JavaScript-->
-
+		
 		<script src="js/jquery-1.9.1.min.js"></script>
 	<script src="js/jquery-migrate-1.0.0.min.js"></script>
 	

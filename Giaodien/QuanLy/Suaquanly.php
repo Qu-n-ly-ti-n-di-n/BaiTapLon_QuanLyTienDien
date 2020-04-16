@@ -137,10 +137,10 @@
 			<ul class="breadcrumb">
 				<li>
 					<i class="icon-home"></i>
-					<a href="index.html">Home</a> 
+					<a href="index.php">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
-				<li><a href="quanly.html">Quản lý</a></li>
+				<li><a href="quanly.php">Quản lý</a></li>
 			</ul>
 
 			

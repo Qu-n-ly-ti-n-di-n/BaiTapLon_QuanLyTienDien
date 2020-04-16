@@ -137,10 +137,10 @@
 			<ul class="breadcrumb">
 				<li>
 					<i class="icon-home"></i>
-					<a href="index.html">Home</a> 
+					<a href="index.php">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
-				<li><a href="khachhang.html">Khách hàng</a></li>
+				<li><a href="khachhang.php">Khách hàng</a></li>
 			</ul>
 
 			
@@ -196,7 +196,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan=2>
-                                    <a href="khachhang.html">Quay lại trang khách hàng</a>
+                                    <a href="khachhang.php">Quay lại trang khách hàng</a>
                                     </td></tr>
                             </table>
                             

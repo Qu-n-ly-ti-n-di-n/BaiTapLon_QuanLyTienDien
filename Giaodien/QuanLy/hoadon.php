@@ -196,7 +196,10 @@
 								
                               </tbody>
                               
-                          </table>     
+                          </table>   
+						  <form action="themhoadon.php">
+						  <input id="btnthemhoadon" class="btn btn-primary" type="submit" value="Thêm hóa đơn" >
+						  </form>  
 						</div>
 					</div><!--/span-->
 				
