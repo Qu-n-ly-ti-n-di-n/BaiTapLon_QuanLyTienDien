@@ -137,10 +137,10 @@
 			<ul class="breadcrumb">
 				<li>
 					<i class="icon-home"></i>
-					<a href="index.html">Home</a> 
+					<a href="index.php">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
-				<li><a href="hoadon.html">Hóa đơn</a></li>
+				<li><a href="hoadon.php">Hóa đơn</a></li>
 			</ul>
 
 			
@@ -165,6 +165,8 @@
 									  <th>Chỉ số mới</th>
                                       <th>Số Kwh</th>
                                       <th>Tổng tiền</th>
+									  <th>Ngày thanh toán</th>
+									  <th>Trạng thái</th>
                                       <th>Chức năng</th>
 								  </tr>
 							  </thead>   
@@ -176,11 +178,13 @@
 									<td class="center">Nghệ an</td>
                                     <td class="center">0123456</td>
                                     <td class="center">0123</td>
+									<td class="center">Ngày thanh toán</td>
+									<td class="center">Đóng/chưa đóng</td>
 									<td class="center">
-										<a class="btn btn-success" href="Suaquanly.html">
+										<a class="btn btn-success" href="Suahoadon.php">
 											<i class="halflings-icon white zoom-in"></i>  
 										</a>
-										<a class="btn btn-info" href="Suaquanly.html">
+										<a class="btn btn-info" href="Suahoadon.php">
 											<i class="halflings-icon white edit"></i>  
 										</a>
 										<a class="btn btn-danger" href="#">

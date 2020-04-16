@@ -137,10 +137,10 @@
 			<ul class="breadcrumb">
 				<li>
 					<i class="icon-home"></i>
-					<a href="index.html">Home</a> 
+					<a href="index.php">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
-				<li><a href="khachhang.html">Khách hàng</a></li>
+				<li><a href="khachhang.php">Khách hàng</a></li>
 			</ul>
 
 			
@@ -160,14 +160,14 @@
                             <table>
                                 <tr> 
                                     <td>Mã KH </td>
-                                    <td> <input type="text" name="ten" value="">
+                                    <td> <input type="text" name="MaKH" value="">
                                     </td>
                                 </tr>
 
                                 
                                 <tr>
                                     <td>Tên khách hàng </td>
-                                    <td> <input type="text" name="ten" value=""></td>
+                                    <td> <input type="text" name="tenkhachhang" value=""></td>
 								</tr>
 								<tr>
                                     <td>Ngày sinh</td>
@@ -175,11 +175,15 @@
                                 </tr>
                                 <tr>
                                     <td>Địa chỉ </td>
-                                    <td> <input type="text" name="quequan" value=""></td>
+                                    <td> <input type="text" name="diachi" value=""></td>
                                 </tr>
                                 <tr>
                                     <td>Số điện thoại </td>
-                                    <td> <input type="text" name="Ngaydangky" value=""></td>
+                                    <td> <input type="text" name="SDT" value=""></td>
+								</tr>
+								<tr>
+                                    <td>Email</td>
+                                    <td> <input type="text" name="Email" value=""></td>
                                 </tr>
                                 <tr><td>Số thẻ</td>
                                     <td> <input type="text" name="Sothe" value=""></td></tr>
@@ -192,7 +196,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan=2>
-                                    <a href="khachhang.html">Quay lại trang khách hàng</a>
+                                    <a href="khachhang.php">Quay lại trang khách hàng</a>
                                     </td></tr>
                             </table>
                             

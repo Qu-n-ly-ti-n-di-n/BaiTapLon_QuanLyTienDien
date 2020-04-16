@@ -137,10 +137,10 @@
 			<ul class="breadcrumb">
 				<li>
 					<i class="icon-home"></i>
-					<a href="index.html">Home</a> 
+					<a href="index.php">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
-				<li><a href="quanly.html">Quản lý</a></li>
+				<li><a href="quanly.php">Quản lý</a></li>
 			</ul>
 
 			
@@ -148,7 +148,7 @@
 				<div class="row-fluid sortable">		
 					<div class="box span12">
 						<div class="box-header" data-original-title>
-							<h2><i class="halflings-icon white user"></i><span class="break"></span>Members</h2>
+							<h2><i class="halflings-icon white user"></i><span class="break"></span>Quản lý</h2>
 							<div class="box-icon">
 								<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
 								<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
@@ -156,7 +156,7 @@
 							</div>
 						</div>
 						<div class="box-content">
-							<table class="table table-striped table-bordered bootstrap-datatable datatable">
+							<table class="table table-striped table-bordered">
 							  <thead>
 								  <tr>
 									  <th>Mã QL</th>
@@ -173,17 +173,13 @@
 									<td class="center">abc</td>
 									<td class="center">2012/01/01</td>
 									<td class="center">Nghệ an</td>
-                                    <td>0123456</td>
+                                    <td class="center">0123456</td>
 									<td class="center">
-										<a class="btn btn-success" href="Suaquanly.html">
-											<i class="halflings-icon white zoom-in"></i>  
-										</a>
-										<a class="btn btn-info" href="Suaquanly.html">
+										
+										<a class="btn btn-info" href="Suaquanly.php">
 											<i class="halflings-icon white edit"></i>  
 										</a>
-										<a class="btn btn-danger" href="#">
-											<i class="halflings-icon white trash"></i> 
-										</a>
+										
                                     </td>
                                     
 								</tr>
@@ -191,7 +187,7 @@
                               </tbody>
                               
                           </table>     
-                          <input id="btnquanly" class="btn btn-primary" type="submit" value="Thêm quản lý" name="them"/>
+                          
 						</div>
 					</div><!--/span-->
 				
