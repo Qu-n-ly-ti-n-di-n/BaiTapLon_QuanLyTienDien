@@ -52,7 +52,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="index.html"><span>JANUX</span></a>
+				<a class="brand" href="index.html"><span>Quản lý tiền điện</span></a>
 								
 				<!-- start: Header Menu -->
 				<div class="nav-no-collapse header-nav">
@@ -177,10 +177,10 @@
                                     <td>0123456</td>
                                     <th>123456</th>
 									<td class="center">
-										<a class="btn btn-success" href="suakhachhang.html">
+										<a class="btn btn-success" href="suakhachhang.php">
 											<i class="halflings-icon white zoom-in"></i>  
 										</a>
-										<a class="btn btn-info" href="suakhachhang.html">
+										<a class="btn btn-info" href="suakhachhang.php">
 											<i class="halflings-icon white edit"></i>  
 										</a>
 										<a class="btn btn-danger" href="#">
@@ -192,7 +192,7 @@
 								
 							  </tbody>
                           </table>         
-                          <input id="btnkhachhang" class="btn btn-primary" type="submit" value="Thêm khách hàng" name="them"/>   
+                          <input id="btnkhachhang" class="btn btn-primary" type="submit" value="Thêm khách hàng" name="them" href='thekhachhang.php'>   
 						</div>
 					</div><!--/span-->
 				
