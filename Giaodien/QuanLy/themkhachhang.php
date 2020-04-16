@@ -180,6 +180,10 @@
                                 <tr>
                                     <td>Số điện thoại </td>
                                     <td> <input type="text" name="Ngaydangky" value=""></td>
+								</tr>
+								<tr>
+                                    <td>Email</td>
+                                    <td> <input type="text" name="Email" value=""></td>
                                 </tr>
                                 <tr><td>Số thẻ</td>
                                     <td> <input type="text" name="Sothe" value=""></td></tr>
