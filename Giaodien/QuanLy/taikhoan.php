@@ -161,27 +161,47 @@
 								  <tr>
 									  <th>Tài khoản</th>
 									  <th>Mật khẩu</th>
+									  <th>Name</th>
 									  <th>Role</th>
 									  <th>Chức năng</th>
 								  </tr>
 							  </thead>   
 							  <tbody>
-								<tr>
-									<td>Dennis Ji</td>
-									<td class="center">2012/01/01</td>
-									<td class="center">Member</td>
-									<td class="center">
-										<a class="btn btn-success" href="suataikhoan.php">
-											<i class="halflings-icon white zoom-in"></i>  
-										</a>
-										<a class="btn btn-info" href="suataikhoan.php">
-											<i class="halflings-icon white edit"></i>  
-										</a>
-										<a class="btn btn-danger" href="#">
-											<i class="halflings-icon white trash"></i> 
-										</a>
-									</td>
-								</tr>
+								<?php
+									include '../../FormDangNhap/connect.php';
+									$sql = "SELECT * FROM user";
+									$result = mysqli_query($connect,$sql);
+									if(mysqli_num_rows($result)>0)
+									{
+										while($row =mysqli_fetch_assoc($result))
+										{
+									
+								?>
+											<tr>
+												<td><?php echo $row['userID']?></td>
+												<td class="center"><?php echo $row['passWord']?></td>
+												<td class="center"><?php echo $row['name']?></td>
+												<td class="center"><?php echo $row['role']?></td>
+												<td class="center">
+													<a class="btn btn-success" href="suataikhoan.php">
+														<i class="halflings-icon white zoom-in"></i>  
+													</a>
+													<a class="btn btn-info" href="suataikhoan.php?id=<?php echo $row['userID']?>">
+														<i class="halflings-icon white edit"></i>  
+													</a>
+													<a class="btn btn-danger" href="xulyxoataikhoan.php?id=<?php echo $row['userID']?>">
+														<i class="halflings-icon white trash"></i> 
+													</a>
+												</td>
+											</tr>
+								<?php
+										}
+									}
+									else
+									{
+										echo('No value!');
+									}
+								?>
 								
 							  </tbody>
                           </table>    

@@ -157,11 +157,11 @@
             </div>
         </div>
         <div class="box-content">
-            <form method="post">
+            <form method="post" action = "xulythemtaikhoan.php">
                 <table>
                     <tr> 
                         <td>Tên đăng nhập </td>
-                        <td> <input type="text" name="ten" value="">
+                        <td> <input type="text" name="username" value="">
                         </td>
                     </tr>
 
@@ -171,20 +171,19 @@
                     </tr>
                     <tr>
                         <td>Nhập lại mật khẩu </td>
-                        <td> <input type="text" name="mkhau" value= ""></td>
+                        <td> <input type="text" name="confimMK" value= ""></td>
                     </tr>
-                    <tr>
-                        <td>Role </td>
-                        <td> <input type="text" name="role" value=""></td>
-                    </tr>
-                    
+					<tr>
+                        <td>Name </td>
+                        <td> <input type="text" name="name" value= ""></td>
+                    </tr>                   
                     <tr><td></td>
                         <td colspan=2>
                         <input id="btnChapNhan" type="submit" value="Thêm tài khoản" name="sua"/>
                         </td>
                     </tr>
                     <tr>
-                        <td><a href="taikhoan.html">Quay lại trang tài khoản</a></td>
+                        <td><a href="taikhoan.php">Quay lại trang tài khoản</a></td>
                     </tr>
                 </table>
                 

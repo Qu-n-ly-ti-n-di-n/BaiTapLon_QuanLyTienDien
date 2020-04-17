@@ -169,11 +169,10 @@
                         <td>Mật khẩu </td>
                         <td> <input type="text" name="mkhau" value= ""></td>
                     </tr>
-                    <tr>
-                        <td>Role </td>
-                        <td> <input type="text" name="role" value=""></td>
-                    </tr>
-                    
+					<tr>
+                        <td>Name </td>
+                        <td> <input type="text" name="name" value= ""></td>
+                    </tr>                    
                     <tr><td></td>
                         <td colspan=2>
                         <input id="btnChapNhan" type="submit" value="Sửa thông tin" name="sua"/>
