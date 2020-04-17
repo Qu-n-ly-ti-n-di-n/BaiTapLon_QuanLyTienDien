@@ -156,35 +156,45 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<form method="post">
+							<?php
+									include '../../FormDangNhap/connect.php';
+									$sql = "SELECT * FROM quanly";
+									$result = mysqli_query($connect,$sql);
+									if(mysqli_num_rows($result)>0)
+									{
+										while($row =mysqli_fetch_assoc($result))
+										{
+									
+							?>
+						<form method="post" action="xulyupdatequanly.php?id=<?php echo $row['MaQL']?>">
                             <table>
                                 <tr> 
                                     <td>Mã quản lý </td>
-                                    <td> <input type="text" name="ten" value="">
+                                    <td> <input type="text" name="MaQL" value="<?php echo $row['MaQL']?>">
                                     </td>
                                 </tr>
 
                                 
                                 <tr>
                                     <td>Tên quản lý </td>
-                                    <td> <input type="text" name="sdt" value=""></td>
+                                    <td> <input type="text" name="name" value="<?php echo $row['TenQL']?>"></td>
 								</tr>
 								<tr>
                                     <td>Ngày sinh</td>
-                                    <td> <input type="date" name="ngaysinh" value= ""></td>
+                                    <td> <input type="date" name="ngaysinh" value= "<?php echo $row['NgaySinh']?>"></td>
                                 </tr>
                                 <tr>
                                     <td>Địa chỉ </td>
-                                    <td> <input type="text" name="quequan" value=""></td>
+                                    <td> <input type="text" name="quequan" value="<?php echo $row['DiaChi']?>"></td>
                                 </tr>
                                 <tr>
                                     <td>Số điện thoại </td>
-                                    <td> <input type="text" name="Ngaydangky" value=""></td>
+                                    <td> <input type="text" name="SDT" value="<?php echo $row['SDT']?>"></td>
                                 </tr>
                             
                                 <tr><td></td>
                                     <td colspan=2>
-                                    <input id="btnChapNhan" type="submit" value="Sửa thông tin" name="sua"/>
+                                    <input id="btnChapNhan" type="submit" value="Sửa thông tin" name="sua">
                                     </td>
                                     
                                 </tr>
@@ -196,7 +206,14 @@
                             </table>
                             
                         </form>
-			
+						<?php
+										}
+									}
+									else
+									{
+										echo('No value!');
+									}
+								?>
 			</div><!--/row-->
 	
 		

@@ -186,7 +186,7 @@
                                     <td class="center"><?php echo $row['SDT']?></td>
 									<td class="center">
 										
-										<a class="btn btn-info" href="Suaquanly.php">
+										<a class="btn btn-info" href="Suaquanly.php?id='<?php echo $row['MaQL']?>'">
 											<i class="halflings-icon white edit"></i>  
 										</a>
 										

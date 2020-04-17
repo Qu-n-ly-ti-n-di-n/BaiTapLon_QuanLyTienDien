@@ -155,12 +155,12 @@
 							<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
 						</div>
 					</div>
-					<div class="box-content">
-						<form method="post">
+					<div class="box-content">					
+						<form method="post" action = "xulythemkhachhang.php">
                             <table>
                                 <tr> 
                                     <td>Mã KH </td>
-                                    <td> <input type="text" name="ten" value="">
+                                    <td> <input type="text" name="makh" value="">
                                     </td>
                                 </tr>
 
@@ -179,7 +179,7 @@
                                 </tr>
                                 <tr>
                                     <td>Số điện thoại </td>
-                                    <td> <input type="text" name="Ngaydangky" value=""></td>
+                                    <td> <input type="text" name="SDT" value=""></td>
 								</tr>
 								<tr>
                                     <td>Email</td>

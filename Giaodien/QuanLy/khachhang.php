@@ -159,29 +159,41 @@
 							<table class="table table-striped table-bordered bootstrap-datatable datatable">
 							  <thead>
 								  <tr>
-									  <th>Mã KH</th>
-									  <th>Tên KH</th>
+									  <th>Mã khách hàng</th>
+									  <th>Tên khách hàng</th>
 									  <th>Ngày sinh</th>
-									  <th>Địa chỉ</th>
-									  <th>Sđt</th>
 									  <th>Email</th>
+									  <th>Địa chỉ</th>
+									  <th>SDT</th>
                                       <th>Mã thẻ</th>
                                       <th>Chức năng</th>
 								  </tr>
 							  </thead>   
 							  <tbody>
+							  <?php
+									include '../../FormDangNhap/connect.php';
+									$sql = "SELECT * FROM khachhang";
+									$result = mysqli_query($connect,$sql);
+									if(mysqli_num_rows($result)>0)
+									{
+										while($row =mysqli_fetch_assoc($result))
+										{
+									
+								?>
 								<tr>
-									<td>1</td>
-									<td class="center">abc</td>
-									<td class="center">2012/01/01</td>
-									<td class="center">Nghệ an</td>
-									<td class="center">0123456</td>
-									<td class="center">123</td>
-                                    <th>123456</th>
+									<td><?php echo $row['MaKH']?></td>
+									<td class="center"><?php echo $row['TenKH']?></td>
+									<td class="center"><?php echo $row['NgaySinh']?></td>
+									<td class="center"><?php echo $row['Email']?></td>
+									<td class="center"><?php echo $row['DiaChi']?></td>
+									<td class="center"><?php echo $row['SDT']?></td>
+                                    <th><?php echo $row['MaThe']?></th>
 									<td class="center">
+										<!--
 										<a class="btn btn-success" href="suakhachhang.php">
 											<i class="halflings-icon white zoom-in"></i>  
 										</a>
+										-->
 										<a class="btn btn-info" href="suakhachhang.php">
 											<i class="halflings-icon white edit"></i>  
 										</a>
@@ -191,7 +203,14 @@
                                     </td>
                                     
 								</tr>
-								
+								<?php
+										}
+									}
+									else
+									{
+										echo('No value!');
+									}
+								?>
 							  </tbody>
                           </table>         
                           <form action="themkhachhang.php">
