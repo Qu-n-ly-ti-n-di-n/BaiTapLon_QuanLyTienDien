@@ -183,9 +183,11 @@
 												<td class="center"><?php echo $row['name']?></td>
 												<td class="center"><?php echo $row['role']?></td>
 												<td class="center">
+													<!--
 													<a class="btn btn-success" href="suataikhoan.php">
 														<i class="halflings-icon white zoom-in"></i>  
 													</a>
+													-->
 													<a class="btn btn-info" href="suataikhoan.php?id=<?php echo $row['userID']?>">
 														<i class="halflings-icon white edit"></i>  
 													</a>

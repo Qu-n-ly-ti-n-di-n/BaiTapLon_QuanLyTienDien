@@ -157,21 +157,31 @@
             </div>
         </div>
         <div class="box-content">
-            <form method="post">
+			<?php
+				include '../../FormDangNhap/connect.php';
+				$userID = $_GET['id'];
+				$sql = "SELECT * FROM user Where userID = '".$userID."'";
+				$result = mysqli_query($connect,$sql);
+				if(mysqli_num_rows($result)>0)
+				{
+					while($row =mysqli_fetch_assoc($result))
+					{
+			?>
+            <form method="post" action = "xulyupdatetaikhoan.php?id=<?php echo $row['userID']?>">
                 <table>
                     <tr> 
                         <td>Tên đăng nhập </td>
-                        <td> <input type="text" name="ten" value="">
+                        <td> <input type="text" name="userID" value="<?php echo $row['userID']?>">
                         </td>
                     </tr>
 
                     <tr>
                         <td>Mật khẩu </td>
-                        <td> <input type="text" name="mkhau" value= ""></td>
+                        <td> <input type="text" name="mkhau" value= "<?php echo $row['passWord']?>"></td>
                     </tr>
 					<tr>
                         <td>Name </td>
-                        <td> <input type="text" name="name" value= ""></td>
+                        <td> <input type="text" name="name" value= "<?php echo $row['name']?>"></td>
                     </tr>                    
                     <tr><td></td>
                         <td colspan=2>
@@ -184,6 +194,10 @@
                 </table>
                 
             </form>
+			<?php
+					}
+				}
+			?>
 
 </div><!--/row-->
 	
