@@ -190,7 +190,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan=2>
-                                    <a href="quanly.html">Quay lại trang quản lý</a>
+                                    <a href="quanly.php">Quay lại trang quản lý</a>
                                     
                                     </td></tr>
                             </table>

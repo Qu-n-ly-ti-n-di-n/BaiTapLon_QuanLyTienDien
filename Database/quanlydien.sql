@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 16, 2020 lúc 11:45 AM
+-- Thời gian đã tạo: Th4 17, 2020 lúc 12:09 PM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.2.29
 
@@ -62,11 +62,11 @@ CREATE TRIGGER `delete_kh_user` AFTER DELETE ON `khachhang` FOR EACH ROW DELETE 
 $$
 DELIMITER ;
 DELIMITER $$
-CREATE TRIGGER `insert_kh_user` AFTER INSERT ON `khachhang` FOR EACH ROW INSERT INTO user VALUES(NEW.MaKH,NEW.MaKH,'KH')
+CREATE TRIGGER `insert_kh_user` AFTER INSERT ON `khachhang` FOR EACH ROW INSERT INTO user VALUES(NEW.MaKH,NEW.MaKH,NEW.TenKH,'KH')
 $$
 DELIMITER ;
 DELIMITER $$
-CREATE TRIGGER `update_kh_user` AFTER UPDATE ON `khachhang` FOR EACH ROW UPDATE user SET userID = NEW.MaKH, PASSWORD = NEW.MaKH WHERE userID = OLD.MaKH
+CREATE TRIGGER `update_kh_user` AFTER UPDATE ON `khachhang` FOR EACH ROW UPDATE user SET userID = NEW.MaKH, PASSWORD = NEW.MaKH , name = NEW.TenKH WHERE userID = OLD.MaKH
 $$
 DELIMITER ;
 
@@ -89,8 +89,7 @@ CREATE TABLE `quanly` (
 --
 
 INSERT INTO `quanly` (`MaQL`, `TenQL`, `NgaySinh`, `DiaChi`, `SDT`) VALUES
-('175A071209', 'Phạm Thế Sơn', '1999-01-15', '', ''),
-('175A071490', 'Đỗ Cảnh Dương', '1995-02-20', 'Nam Định', '1545413232');
+('ADMIN', 'Phạm Thế Sơn', '1999-01-15', 'Nam Định', '1312313');
 
 --
 -- Bẫy `quanly`
@@ -100,7 +99,7 @@ CREATE TRIGGER `delete_ql_user` AFTER DELETE ON `quanly` FOR EACH ROW DELETE FRO
 $$
 DELIMITER ;
 DELIMITER $$
-CREATE TRIGGER `insert_ql_user` AFTER INSERT ON `quanly` FOR EACH ROW INSERT INTO user VALUES(NEW.MaQL,NEW.MaQL,'QL')
+CREATE TRIGGER `insert_ql_user` AFTER INSERT ON `quanly` FOR EACH ROW INSERT INTO user VALUES(NEW.MaQL,NEW.MaQL,NEW.TenQL,'QL')
 $$
 DELIMITER ;
 DELIMITER $$
@@ -173,6 +172,7 @@ DELIMITER ;
 CREATE TABLE `user` (
   `userID` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Tên tài khoản',
   `passWord` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Mật khẩu',
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `role` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Phân quyền'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -180,9 +180,10 @@ CREATE TABLE `user` (
 -- Đang đổ dữ liệu cho bảng `user`
 --
 
-INSERT INTO `user` (`userID`, `passWord`, `role`) VALUES
-('175A071209', '175A071209', 'QL'),
-('175A071490', '175A071490', 'QL');
+INSERT INTO `user` (`userID`, `passWord`, `name`, `role`) VALUES
+('123', '14', 'Phạm Thế Sơn', 'KH'),
+('ADMIN', 'ADMIN', 'Phạm Thế Sơn', 'QL'),
+('SonPT', '134324', 'con cho', 'KH');
 
 --
 -- Chỉ mục cho các bảng đã đổ

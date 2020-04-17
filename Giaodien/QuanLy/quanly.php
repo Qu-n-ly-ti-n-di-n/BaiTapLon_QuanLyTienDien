@@ -159,7 +159,7 @@
 							<table class="table table-striped table-bordered">
 							  <thead>
 								  <tr>
-									  <th>Mã QL</th>
+									  <th>Mã quản lý</th>
 									  <th>Tên quản lý</th>
 									  <th>Ngày sinh</th>
 									  <th>Địa chỉ</th>
@@ -168,12 +168,22 @@
 								  </tr>
 							  </thead>   
 							  <tbody>
+							  <?php
+									include '../../FormDangNhap/connect.php';
+									$sql = "SELECT * FROM quanly";
+									$result = mysqli_query($connect,$sql);
+									if(mysqli_num_rows($result)>0)
+									{
+										while($row =mysqli_fetch_assoc($result))
+										{
+									
+								?>
 								<tr>
-									<td>1</td>
-									<td class="center">abc</td>
-									<td class="center">2012/01/01</td>
-									<td class="center">Nghệ an</td>
-                                    <td class="center">0123456</td>
+									<td><?php echo $row['MaQL']?></td>
+									<td class="center"><?php echo $row['TenQL']?></td>
+									<td class="center"><?php echo $row['NgaySinh']?></td>
+									<td class="center"><?php echo $row['DiaChi']?></td>
+                                    <td class="center"><?php echo $row['SDT']?></td>
 									<td class="center">
 										
 										<a class="btn btn-info" href="Suaquanly.php">
@@ -183,7 +193,14 @@
                                     </td>
                                     
 								</tr>
-								
+								<?php
+										}
+									}
+									else
+									{
+										echo('No value!');
+									}
+								?>
                               </tbody>
                               
                           </table>     
