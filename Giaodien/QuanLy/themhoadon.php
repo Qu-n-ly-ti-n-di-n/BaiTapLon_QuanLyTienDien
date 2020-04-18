@@ -115,8 +115,7 @@
 					<ul class="nav nav-tabs nav-stacked main-menu">
 						<li><a href="index.php"><i class="icon-home"></i><span class="hidden-tablet">Trang chủ</span></a></li>	
 						<li><a href="taikhoan.php"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Tài khoản</span></a></li>
-						<li><a href="quanly.php"><i class="icon-tasks"></i><span class="hidden-tablet">Quản lý</span></a></li>
-						<li><a href="form.php"><i class="icon-edit"></i><span class="hidden-tablet"> Forms</span></a></li>
+						<li><a href="quanly.php"><i class="icon-tasks"></i><span class="hidden-tablet">Quản lý</span></a></li>						
 						<li><a href="hoadon.php"><i class="icon-align-justify"></i><span class="hidden-tablet">Hóa đơn</span></a></li>
 						<li><a href="khachhang.php"><i class="icon-folder-open"></i><span class="hidden-tablet">Khách hàng</span></a></li>
 					</ul>
@@ -157,34 +156,8 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<form method="post" action ="xulythemhoadon.php">
-                            <table>
-                                <tr> 
-                                    <td>Mã HĐ</td>
-                                    <td> <input type="text" name="mahd" value="">
-                                    </td>
-                                </tr>
-
-                                
-                                <tr>
-                                    <td>Mã KH </td>
-                                    <td> <input type="text" name="makh" value=""></td>
-								</tr>
-								<tr>
-                                    <td>Ngày phải thanh toán</td>
-                                    <td><input type="date" name="ngayphaithanhtoan"></td>
-                                </tr>							
-                                <tr>
-                                    <td>Chỉ số mới </td>
-                                    <td> <input type="text" name="chisomoi" value=""></td>
-                                </tr>
-                                												
-                                <tr><td></td>
-                                    <td colspan=2>
-                                    <input id="btnChapNhan" type="submit" value="Thêm hóa đơn" name="them">
-                                    </td>
-                                    <!---------inport------------------------>
-									<form class="form-horizontal" action="" method="post" name="uploadCSV"
+					<!---------inport------------------------>
+					<form class="form-horizontal" action="" method="post" name="uploadCSV"
 									enctype="multipart/form-data" style="position: relative; left:200px; bottom:45px">
 									<div class="input-row">
 									
@@ -198,8 +171,6 @@
 								</form>
 								<!---------inport------------------------>
 								<?php
-
-
 								if (isset($_POST["import"])) {
 									
 									$fileName = $_FILES["file"]["tmp_name"];
@@ -235,17 +206,45 @@
 											mysqli_query($connect,$query2);
 											if (! empty($result)) {
 												$type = "success";
-												$message = "CSV Data Imported into the Database";
+												$message = "CSV Data Imported into the Database";											
 											} else {
 												$type = "error";
 												$message = "Problem in Importing CSV Data";
 											}
-										}
-										header("location:hoadon.php");
+											
+										}									
 									}
+
 								}
+								
 								?>
 								<!---------inport------------------------>
+						<form method="post" action ="xulythemhoadon.php">
+                            <table>
+                                <tr> 
+                                    <td>Mã HĐ</td>
+                                    <td> <input type="text" name="mahd" value="">
+                                    </td>
+                                </tr>
+
+                                
+                                <tr>
+                                    <td>Mã KH </td>
+                                    <td> <input type="text" name="makh" value=""></td>
+								</tr>
+								<tr>
+                                    <td>Ngày phải thanh toán</td>
+                                    <td><input type="date" name="ngayphaithanhtoan"></td>
+                                </tr>							
+                                <tr>
+                                    <td>Chỉ số mới </td>
+                                    <td> <input type="text" name="chisomoi" value=""></td>
+                                </tr>
+                                												
+                                <tr><td></td>
+                                    <td colspan=2>
+                                    <input id="btnChapNhan" type="submit" value="Thêm hóa đơn" name="them">
+                                    </td>                      
                                 </tr>
                                 <tr>
                                     <td colspan=2>
