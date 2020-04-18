@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -85,7 +86,7 @@
 						<!-- start: User Dropdown -->
 						<li class="dropdown">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="halflings-icon white user"></i> Dennis Ji
+								<i class="halflings-icon white user"></i> <?php echo $_SESSION['name']; ?>
 								<span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu">
@@ -93,7 +94,7 @@
  									<span>Account Settings</span>
 								</li>
 								<li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
-								<li><a href="login.html"><i class="halflings-icon off"></i> Logout</a></li>
+								<li><a href="#" onclick="logout()" id ="logout"><i class="halflings-icon off"></i> Logout</a></li>
 							</ul>
 						</li>
 						<!-- end: User Dropdown -->
@@ -175,10 +176,12 @@
 									{
 										while($row =mysqli_fetch_assoc($result))
 										{
+											$user=$row['userID'];
+											$role=$row['role'];
 									
 								?>
 											<tr>
-												<td><?php echo $row['userID']?></td>
+												<td><?php echo $user?></td>
 												<td class="center"><?php echo $row['passWord']?></td>
 												<td class="center"><?php echo $row['name']?></td>
 												<td class="center"><?php echo $row['role']?></td>
@@ -191,7 +194,7 @@
 													<a class="btn btn-info" href="suataikhoan.php?id=<?php echo $row['userID']?>">
 														<i class="halflings-icon white edit"></i>  
 													</a>
-													<a class="btn btn-danger" href="xulyxoataikhoan.php?id=<?php echo $row['userID']?>">
+													<a class="btn btn-danger" href="xulyxoataikhoan.php?id=<?php echo $user ?>">
 														<i class="halflings-icon white trash"></i> 
 													</a>
 												</td>
@@ -312,6 +315,15 @@
 		<script src="js/retina.js"></script>
 
 		<script src="js/custom.js"></script>
+		<script>
+           
+		   function logout(){
+			   var r = confirm("Bạn thật sự muốn thoát");
+			   if (r == true) {
+					window.location="logout.php";
+			 }
+		   }
+		   </script>
 	<!-- end: JavaScript-->
 	
 </body>
