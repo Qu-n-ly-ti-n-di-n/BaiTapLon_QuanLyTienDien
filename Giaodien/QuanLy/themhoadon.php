@@ -157,7 +157,7 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<form method="post">
+						<form method="post" action ="xulythemhoadon.php">
                             <table>
                                 <tr> 
                                     <td>Mã HĐ</td>
@@ -168,34 +168,17 @@
                                 
                                 <tr>
                                     <td>Mã KH </td>
-                                    <td> <input type="text" name="MaKh" value=""></td>
+                                    <td> <input type="text" name="MaKH" value=""></td>
 								</tr>
 								<tr>
-                                    <td>Chỉ số cũ</td>
-                                    <td> <input type="text" name="chisocu" value= ""></td>
-                                </tr>
+                                    <td>Ngày phải thanh toán</td>
+                                    <td><input type="date" name="ngayphaithanhtoan"></td>
+                                </tr>							
                                 <tr>
                                     <td>Chỉ số mới </td>
                                     <td> <input type="text" name="chisomoi" value=""></td>
                                 </tr>
-                                <tr>
-                                    <td>Số Kwh</td>
-                                    <td> <input type="text" name="sokwh" value=""></td>
-                                </tr>
-                                
-                                <tr>
-                                    <td>Tổng tiền</td>
-                                    <td ><input type="text" name="tongtien"></td>
-								</tr>
-								<tr>
-                                    <td>Ngày thanh toán</td>
-                                    <td><input type="text" name="ngaythanhtoan"></td>
-                                </tr>
-								<tr>
-									<td>Trạng thái</td>
-									<td><input type="text" name="trangthai"></td>
-								</tr>
-                            
+                                												
                                 <tr><td></td>
                                     <td colspan=2>
                                     <input id="btnChapNhan" type="submit" value="Thêm hóa đơn" name="them"/>

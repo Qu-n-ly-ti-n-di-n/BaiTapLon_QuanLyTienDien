@@ -156,37 +156,46 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<form method="post">
+					<?php
+						include '../../FormDangNhap/connect.php';
+						$makh = $_GET['id'];
+						$sql = "SELECT * FROM khachhang Where MaKH = '".$makh."'";
+						$result = mysqli_query($connect,$sql);
+						if(mysqli_num_rows($result)>0)
+						{
+							while($row =mysqli_fetch_assoc($result))
+							{
+						?>
+						<form method="post" action = "xulyupdatekhachhang.php?id=<?php echo $row['MaKH']?>">
                             <table>
                                 <tr> 
-                                    <td>Mã KH </td>
-                                    <td> <input type="text" name="MaKH" value="">
+                                    <td>Mã khách hàng </td>
+                                    <td> <input type="text" name="makh" value="<?php echo $row['MaKH']?>">
                                     </td>
                                 </tr>
-
-                                
                                 <tr>
                                     <td>Tên khách hàng </td>
-                                    <td> <input type="text" name="tenkhachhang" value=""></td>
+                                    <td> <input type="text" name="ten" value="<?php echo $row['TenKH']?>"></td>
 								</tr>
 								<tr>
                                     <td>Ngày sinh</td>
-                                    <td> <input type="date" name="ngaysinh" value= ""></td>
+                                    <td> <input type="date" name="ngaysinh" value= "<?php echo $row['NgaySinh']?>"></td>
                                 </tr>
                                 <tr>
-                                    <td>Địa chỉ </td>
-                                    <td> <input type="text" name="diachi" value=""></td>
-                                </tr>
-                                <tr>
-                                    <td>Số điện thoại </td>
-                                    <td> <input type="text" name="SDT" value=""></td>
-								</tr>
-								<tr>
                                     <td>Email</td>
-                                    <td> <input type="text" name="Email" value=""></td>
+                                    <td> <input type="text" name="Email" value="<?php echo $row['Email']?>"></td>
                                 </tr>
+                                
+								<tr>
+                                    <td>Địa chỉ </td>
+                                    <td> <input type="text" name="quequan" value="<?php echo $row['DiaChi']?>"></td>
+                                </tr>
+								<tr>
+                                    <td>Số điện thoại </td>
+                                    <td> <input type="text" name="SDT" value="<?php echo $row['SDT']?>"></td>
+								</tr>
                                 <tr><td>Số thẻ</td>
-                                    <td> <input type="text" name="Sothe" value=""></td></tr>
+                                    <td> <input type="text" name="Sothe" value="<?php echo $row['MaThe']?>"></td></tr>
                             
                                 <tr><td></td>
                                     <td colspan=2>
@@ -201,7 +210,10 @@
                             </table>
                             
                         </form>
-			
+						<?php
+							}
+						}
+						?>
 			</div><!--/row-->
 	
 		
