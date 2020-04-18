@@ -169,7 +169,7 @@
 									  <th>Số tiền/Kwh</th>
                                       <th>Tổng tiền</th>									
 									  <th>Trạng thái</th>
-                                      <th>Chức năng</th>
+                                      <th></th>
 								  </tr>
 							  </thead>   
 							  <tbody>
@@ -199,13 +199,14 @@
 										<a class="btn btn-success" href="Suahoadon.php">
 											<i class="halflings-icon white zoom-in"></i>  
 										</a>
-										-->
-										<a class="btn btn-info" href="Suahoadon.php">
+										
+										<a class="btn btn-info" href="Suahoadon.php?id=<?php echo $row['MaHD']?>">
 											<i class="halflings-icon white edit"></i>  
 										</a>
 										<a class="btn btn-danger" href="#">
 											<i class="halflings-icon white trash"></i> 
 										</a>
+										-->
                                     </td>
                                     
 								</tr>

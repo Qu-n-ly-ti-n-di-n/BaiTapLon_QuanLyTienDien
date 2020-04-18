@@ -3,12 +3,12 @@
     //lấy số tiền trên 1 số điện
     $sql = "SELECT * FROM trangthaisodien";
 	$result = mysqli_query($connect,$sql);
-    $row =mysqli_fetch_assoc($result)
+    $row =mysqli_fetch_assoc($result);  
     //lấy chỉ sô điện cũ
     $makh = $_POST['makh'];
     $sql1 = "SELECT * FROM chisodiencu where MaKH = '$makh'";
     $result1 = mysqli_query($connect,$sql1);
-    $row1 =mysqli_fetch_assoc($result1)
+    $row1 =mysqli_fetch_assoc($result1);
     //
     $mahd = $_POST['mahd'];
     $ngayphaithanhtoan = $_POST['ngayphaithanhtoan'];
