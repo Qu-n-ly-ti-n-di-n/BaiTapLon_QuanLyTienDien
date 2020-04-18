@@ -1,9 +1,11 @@
+
 <?php
 session_start();
 if (!isset($_SESSION['lv']) || ($_SESSION['lv'] != 'QL'))
 {
  header("Location:../../index.php");
 exit();}
+
 ?>
   
 <!DOCTYPE html>
@@ -12,7 +14,7 @@ exit();}
 	
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<title>Bootstrap Metro Dashboard by Dennis Ji for ARM demo</title>
+	<title>Duong seo khong so ai ??</title>
 	<meta name="description" content="Bootstrap Metro Dashboard">
 	<meta name="author" content="Dennis Ji">
 	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
@@ -131,6 +133,7 @@ exit();}
 			</div>
 			<!-- end: Main Menu -->
 			
+			
 			<noscript>
 				<div class="alert alert-block span10">
 					<h4 class="alert-heading">Warning!</h4>
@@ -150,6 +153,19 @@ exit();}
 				</li>
 				<li><a href="#">Dashboard</a></li>
 			</ul>
+			<?php
+
+
+
+if( isset( $_SESSION['counter'] ) ) {
+    $_SESSION['counter'] += 1;
+}else {
+    $_SESSION['counter'] = 1;
+}
+
+$msg = "<p>Bạn là vào truy cập ".  $_SESSION['counter'] . ' lần vào trang</p>';
+echo $msg;
+?>
 
 	</div><!--/.fluid-container-->
 	
