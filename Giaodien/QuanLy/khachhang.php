@@ -171,7 +171,7 @@
 							  </thead>   
 							  <tbody>
 							  <?php
-									include '../../FormDangNhap/connect.php';
+									include '../../connect.php';
 									$sql = "SELECT * FROM khachhang";
 									$result = mysqli_query($connect,$sql);
 									if(mysqli_num_rows($result)>0)
@@ -194,10 +194,10 @@
 											<i class="halflings-icon white zoom-in"></i>  
 										</a>
 										-->
-										<a class="btn btn-info" href="suakhachhang.php">
+										<a class="btn btn-info" href="suakhachhang.php?id=<?php echo $row['MaKH']?>">
 											<i class="halflings-icon white edit"></i>  
 										</a>
-										<a class="btn btn-danger" href="#">
+										<a class="btn btn-danger" href="xulyxoakhachhang.php?id=<?php echo $row['MaKH']?>">
 											<i class="halflings-icon white trash"></i> 
 										</a>
                                     </td>

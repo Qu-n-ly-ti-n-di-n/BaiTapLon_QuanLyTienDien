@@ -157,50 +157,95 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<form method="post">
+						<form method="post" action ="xulythemhoadon.php">
                             <table>
                                 <tr> 
                                     <td>Mã HĐ</td>
-                                    <td> <input type="text" name="MaHD" value="">
+                                    <td> <input type="text" name="mahd" value="">
                                     </td>
                                 </tr>
 
                                 
                                 <tr>
                                     <td>Mã KH </td>
-                                    <td> <input type="text" name="MaKh" value=""></td>
+                                    <td> <input type="text" name="makh" value=""></td>
 								</tr>
 								<tr>
-                                    <td>Chỉ số cũ</td>
-                                    <td> <input type="text" name="chisocu" value= ""></td>
-                                </tr>
+                                    <td>Ngày phải thanh toán</td>
+                                    <td><input type="date" name="ngayphaithanhtoan"></td>
+                                </tr>							
                                 <tr>
                                     <td>Chỉ số mới </td>
                                     <td> <input type="text" name="chisomoi" value=""></td>
                                 </tr>
-                                <tr>
-                                    <td>Số Kwh</td>
-                                    <td> <input type="text" name="sokwh" value=""></td>
-                                </tr>
-                                
-                                <tr>
-                                    <td>Tổng tiền</td>
-                                    <td ><input type="text" name="tongtien"></td>
-								</tr>
-								<tr>
-                                    <td>Ngày thanh toán</td>
-                                    <td><input type="text" name="ngaythanhtoan"></td>
-                                </tr>
-								<tr>
-									<td>Trạng thái</td>
-									<td><input type="text" name="trangthai"></td>
-								</tr>
-                            
+                                												
                                 <tr><td></td>
                                     <td colspan=2>
-                                    <input id="btnChapNhan" type="submit" value="Thêm hóa đơn" name="them"/>
+                                    <input id="btnChapNhan" type="submit" value="Thêm hóa đơn" name="them">
                                     </td>
-                                    
+                                    <!---------inport------------------------>
+									<form class="form-horizontal" action="" method="post" name="uploadCSV"
+									enctype="multipart/form-data" style="position: relative; left:200px; bottom:45px">
+									<div class="input-row">
+									
+										<input  type="file" name="file" id="file" accept=".csv">
+										<button type="submit" id="submit" name="import"
+											class="btn-submit">Import</button>
+										<br />
+
+									</div>
+									<div id="labelError"></div>
+								</form>
+								<!---------inport------------------------>
+								<?php
+
+
+								if (isset($_POST["import"])) {
+									
+									$fileName = $_FILES["file"]["tmp_name"];
+									
+									if ($_FILES["file"]["size"] > 0) {
+										
+										$file = fopen($fileName, "r");
+										include '../../connect.php';									
+										while (($column = fgetcsv($file, 10000, ",")) !== FALSE) {
+											
+											//lấy số tiền trên 1 số điện
+											$sql = "SELECT * FROM trangthaisodien";
+											$result0 = mysqli_query($connect,$sql);
+											$row =mysqli_fetch_assoc($result0);  
+											//lấy chỉ sô điện cũ
+											$makh = $column[1];
+											$sql1 = "SELECT * FROM chisodiencu where MaKH = '$makh'";
+											$result1 = mysqli_query($connect,$sql1);
+											$row1 =mysqli_fetch_assoc($result1);
+											//
+											$mahd = $column[0];
+											$ngayphaithanhtoan = $column[2];
+											$ngaythanhtoan = "";
+											$chisocu = $row1['chisocu'];
+											$chisomoi = $column[3];
+											$soKwh = $chisomoi - $chisocu;
+											$sotienKwh = $row['SoTien/Kwh'];
+											$tongtien = $soKwh*$sotienKwh;
+											$trangthai = "Chưa đóng";
+											$sqlInsert = "INSERT INTO hoadon VALUES('".$mahd."','".$makh."','".$ngayphaithanhtoan."','".$ngaythanhtoan."',".$chisocu.",".$chisomoi.",".$soKwh.",".$sotienKwh.",".$tongtien.",'".$trangthai."')";
+											$query2="UPDATE chisodiencu SET chisocu = $chisomoi WHERE MaKH = '$makh'";
+											$result = mysqli_query($connect, $sqlInsert);
+											mysqli_query($connect,$query2);
+											if (! empty($result)) {
+												$type = "success";
+												$message = "CSV Data Imported into the Database";
+											} else {
+												$type = "error";
+												$message = "Problem in Importing CSV Data";
+											}
+										}
+										header("location:hoadon.php");
+									}
+								}
+								?>
+								<!---------inport------------------------>
                                 </tr>
                                 <tr>
                                     <td colspan=2>

@@ -157,6 +157,16 @@
 						</div>
 					</div>
 					<div class="box-content">
+					<?php
+						include '../../connect.php';
+						$mahd = $_GET['id'];
+						$sql = "SELECT * FROM hoadon Where MaHD = '".$mahd."'";
+						$result = mysqli_query($connect,$sql);
+						if(mysqli_num_rows($result)>0)
+						{
+							while($row =mysqli_fetch_assoc($result))
+							{
+						?>
 						<form method="post">
                             <table>
                                 <tr> 
@@ -209,7 +219,10 @@
                             </table>
                             
                         </form>
-			
+						<?php
+							}
+						}
+						?>
 			</div><!--/row-->
 	
 		

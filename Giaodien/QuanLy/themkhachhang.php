@@ -159,12 +159,10 @@
 						<form method="post" action = "xulythemkhachhang.php">
                             <table>
                                 <tr> 
-                                    <td>Mã KH </td>
+                                    <td>Mã khách hàng </td>
                                     <td> <input type="text" name="makh" value="">
                                     </td>
-                                </tr>
-
-                                
+                                </tr>  
                                 <tr>
                                     <td>Tên khách hàng </td>
                                     <td> <input type="text" name="ten" value=""></td>
@@ -173,6 +171,10 @@
                                     <td>Ngày sinh</td>
                                     <td> <input type="date" name="ngaysinh" value= ""></td>
                                 </tr>
+								<tr>
+                                    <td>Email</td>
+                                    <td> <input type="text" name="Email" value=""></td>
+                                </tr>
                                 <tr>
                                     <td>Địa chỉ </td>
                                     <td> <input type="text" name="quequan" value=""></td>
@@ -180,11 +182,7 @@
                                 <tr>
                                     <td>Số điện thoại </td>
                                     <td> <input type="text" name="SDT" value=""></td>
-								</tr>
-								<tr>
-                                    <td>Email</td>
-                                    <td> <input type="text" name="Email" value=""></td>
-                                </tr>
+								</tr>							
                                 <tr><td>Số thẻ</td>
                                     <td> <input type="text" name="Sothe" value=""></td></tr>
                             

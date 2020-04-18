@@ -161,39 +161,63 @@
 								  <tr>
 									  <th>Mã HĐ</th>
 									  <th>Mã KH</th>
+									  <th>Ngày phải thanh toán</th>
+									  <th>Ngày thanh toán</th>
 									  <th>Chỉ số cũ</th>
 									  <th>Chỉ số mới</th>
                                       <th>Số Kwh</th>
-                                      <th>Tổng tiền</th>
-									  <th>Ngày thanh toán</th>
+									  <th>Số tiền/Kwh</th>
+                                      <th>Tổng tiền</th>									
 									  <th>Trạng thái</th>
-                                      <th>Chức năng</th>
+                                      <th></th>
 								  </tr>
 							  </thead>   
 							  <tbody>
+							  <?php
+									include '../../connect.php';
+									$sql = "SELECT * FROM hoadon";
+									$result = mysqli_query($connect,$sql);
+									if(mysqli_num_rows($result)>0)
+									{
+										while($row =mysqli_fetch_assoc($result))
+										{
+									
+								?>
 								<tr>
-									<td>1</td>
-									<td class="center">abc</td>
-									<td class="center">2012/01/01</td>
-									<td class="center">Nghệ an</td>
-                                    <td class="center">0123456</td>
-                                    <td class="center">0123</td>
-									<td class="center">Ngày thanh toán</td>
-									<td class="center">Đóng/chưa đóng</td>
+									<td><?php echo $row['MaHD']?></td>
+									<td class="center"><?php echo $row['MaKH']?></td>
+									<td class="center"><?php echo $row['NgayPhaiThanhToan']?></td>
+									<td class="center"><?php echo $row['NgayThanhToan']?></td>
+									<td class="center"><?php echo $row['ChiSoCu']?></td>
+                                    <td class="center"><?php echo $row['ChiSoMoi']?></td>
+                                    <td class="center"><?php echo $row['SoKwh']?></td>
+									<td class="center"><?php echo $row['SoTien/Kwh']?></td>
+									<td class="center"><?php echo $row['TongTien']?></td>
+									<td class="center"><?php echo $row['TrangThai']?></td>
 									<td class="center">
+										<!--
 										<a class="btn btn-success" href="Suahoadon.php">
 											<i class="halflings-icon white zoom-in"></i>  
 										</a>
-										<a class="btn btn-info" href="Suahoadon.php">
+										
+										<a class="btn btn-info" href="Suahoadon.php?id=<?php echo $row['MaHD']?>">
 											<i class="halflings-icon white edit"></i>  
 										</a>
 										<a class="btn btn-danger" href="#">
 											<i class="halflings-icon white trash"></i> 
 										</a>
+										-->
                                     </td>
                                     
 								</tr>
-								
+								<?php
+										}
+									}
+									else
+									{
+										echo('No value!');
+									}
+								?>
                               </tbody>
                               
                           </table>   

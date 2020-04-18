@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['lv']) || ($_SESSION['lv'] != 'QL'))
+{
+ header("Location:../../index.php");
+exit();}
+?>
+  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -85,7 +93,7 @@
 						<!-- start: User Dropdown -->
 						<li class="dropdown">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="halflings-icon white user"></i> Dennis Ji
+								<i class="halflings-icon white user"></i> <?php echo $_SESSION['name']; ?>
 								<span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu">
@@ -93,7 +101,7 @@
  									<span>Account Settings</span>
 								</li>
 								<li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
-								<li><a href="login.html"><i class="halflings-icon off"></i> Logout</a></li>
+								<li><a href="#" onclick="logout()" id ="logout"><i class="halflings-icon off"></i> Logout</a></li>
 							</ul>
 						</li>
 						<!-- end: User Dropdown -->
@@ -239,6 +247,15 @@
 		<script src="js/retina.js"></script>
 
 		<script src="js/custom.js"></script>
+		<script>
+           
+            function logout(){
+                var r = confirm("Bạn thật sự muốn thoát");
+                if (r == true) {
+                     window.location="logout.php";
+              }
+            }
+            </script>
 	<!-- end: JavaScript-->
 	
 </body>

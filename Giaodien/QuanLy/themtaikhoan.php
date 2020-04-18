@@ -179,7 +179,7 @@
                     </tr>                   
                     <tr><td></td>
                         <td colspan=2>
-                        <input id="btnChapNhan" type="submit" value="Thêm tài khoản" name="sua"/>
+                        <input id="btnChapNhan" type="submit" value="Thêm tài khoản" name="sua">
                         </td>
                     </tr>
                     <tr>

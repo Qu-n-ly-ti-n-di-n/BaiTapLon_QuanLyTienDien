@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 17, 2020 lúc 12:09 PM
+-- Thời gian đã tạo: Th4 18, 2020 lúc 04:14 PM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.2.29
 
@@ -24,19 +24,48 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `chisodiencu`
+--
+
+CREATE TABLE `chisodiencu` (
+  `MaKH` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Mã khách hàng',
+  `chisocu` int(11) NOT NULL COMMENT 'Chỉ số điện cũ'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `chisodiencu`
+--
+
+INSERT INTO `chisodiencu` (`MaKH`, `chisocu`) VALUES
+('duong', 50),
+('son', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `hoadon`
 --
 
 CREATE TABLE `hoadon` (
   `MaHD` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Mã hóa đơn',
   `MaKH` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Mã khách hàng',
+  `NgayPhaiThanhToan` date NOT NULL COMMENT 'Ngày phải thanh toán',
   `NgayThanhToan` date NOT NULL COMMENT 'Ngày thanh toán',
   `ChiSoCu` int(11) NOT NULL COMMENT 'Chỉ số cũ',
   `ChiSoMoi` int(11) NOT NULL COMMENT 'Chỉ số mới',
   `SoKwh` int(11) NOT NULL COMMENT 'Số kwh',
-  `TongTien` int(11) NOT NULL COMMENT 'Tổng tiền cần thanh toán',
+  `SoTien/Kwh` int(11) NOT NULL COMMENT 'Số tiền trên 1 Kwh',
+  `TongTien` bigint(11) NOT NULL COMMENT 'Tổng tiền cần thanh toán',
   `TrangThai` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Trạng thái đã thanh toán hay chưa thanh toán'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ;
+
+--
+-- Đang đổ dữ liệu cho bảng `hoadon`
+--
+
+INSERT INTO `hoadon` (`MaHD`, `MaKH`, `NgayPhaiThanhToan`, `NgayThanhToan`, `ChiSoCu`, `ChiSoMoi`, `SoKwh`, `SoTien/Kwh`, `TongTien`, `TrangThai`) VALUES
+('1', 'duong', '2020-05-01', '0000-00-00', 0, 30, 30, 1500, 45000, 'Chưa đóng'),
+('2', 'duong', '2020-06-01', '0000-00-00', 30, 50, 20, 1500, 30000, 'Chưa đóng');
 
 -- --------------------------------------------------------
 
@@ -55,10 +84,22 @@ CREATE TABLE `khachhang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Đang đổ dữ liệu cho bảng `khachhang`
+--
+
+INSERT INTO `khachhang` (`MaKH`, `TenKH`, `NgaySinh`, `Email`, `DiaChi`, `SDT`, `MaThe`) VALUES
+('duong', 'Đỗ Cảnh Dương', '1995-02-20', 'DuongDo@gmail.com', 'Nam Định', '2312234234', '123'),
+('son', 'Phạm Thế Sơn', '1999-01-15', 'Pamson@gmail.com', 'Nam Định', '1312313', '23');
+
+--
 -- Bẫy `khachhang`
 --
 DELIMITER $$
 CREATE TRIGGER `delete_kh_user` AFTER DELETE ON `khachhang` FOR EACH ROW DELETE FROM user WHERE userID = OLD.MaKH
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `insert_kh_Chisodiencu` AFTER INSERT ON `khachhang` FOR EACH ROW INSERT INTO chisodiencu VALUES(NEW.MaKH,0)
 $$
 DELIMITER ;
 DELIMITER $$
@@ -89,7 +130,7 @@ CREATE TABLE `quanly` (
 --
 
 INSERT INTO `quanly` (`MaQL`, `TenQL`, `NgaySinh`, `DiaChi`, `SDT`) VALUES
-('ADMIN', 'Phạm Thế Sơn', '1999-01-15', 'Nam Định', '1312313');
+('ADMIN', 'Phạm Thế Sơn', '1999-01-15', 'Nam Định', '2312234234');
 
 --
 -- Bẫy `quanly`
@@ -124,15 +165,7 @@ CREATE TABLE `taikhoannganhang` (
 --
 
 INSERT INTO `taikhoannganhang` (`MaThe`, `MatKhau`, `TongTien`) VALUES
-('12235656756756756', '1223', 0);
-
---
--- Bẫy `taikhoannganhang`
---
-DELIMITER $$
-CREATE TRIGGER `update_taikhoan` BEFORE UPDATE ON `taikhoannganhang` FOR EACH ROW UPDATE taikhoannganhang set taikhoannganhang.MatKhau = NEW.MaThe WHERE taikhoannganhang.MaThe = NEW.MaThe
-$$
-DELIMITER ;
+('123', '123', 0);
 
 -- --------------------------------------------------------
 
@@ -153,15 +186,25 @@ CREATE TABLE `thongtinthe` (
 --
 
 INSERT INTO `thongtinthe` (`MaThe`, `TenChuThe`, `NgaySinh`, `DiaChi`, `SDT`) VALUES
-('12235656756756756', 'ádaada', '2020-04-09', 'ádasdasd', 'ádasdas');
+('123', 'ádaada', '2020-04-09', 'ádasdasd', 'ádasdas'),
+('23', '1asdas', '2020-04-09', 'ádasdasd', '2312234234');
+
+-- --------------------------------------------------------
 
 --
--- Bẫy `thongtinthe`
+-- Cấu trúc bảng cho bảng `trangthaisodien`
 --
-DELIMITER $$
-CREATE TRIGGER `insert_taiKhoannganhang` AFTER INSERT ON `thongtinthe` FOR EACH ROW INSERT INTO taikhoannganhang VALUES(NEW.MaThe,NEW.MaThe,0)
-$$
-DELIMITER ;
+
+CREATE TABLE `trangthaisodien` (
+  `SoTien/Kwh` int(11) NOT NULL COMMENT 'Só tiền trên 1 kwwh'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `trangthaisodien`
+--
+
+INSERT INTO `trangthaisodien` (`SoTien/Kwh`) VALUES
+(1500);
 
 -- --------------------------------------------------------
 
@@ -171,7 +214,7 @@ DELIMITER ;
 
 CREATE TABLE `user` (
   `userID` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Tên tài khoản',
-  `passWord` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Mật khẩu',
+  `passWord` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Mật khẩu',
   `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `role` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Phân quyền'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -181,26 +224,35 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userID`, `passWord`, `name`, `role`) VALUES
-('123', '14', 'Phạm Thế Sơn', 'KH'),
-('ADMIN', 'ADMIN', 'Phạm Thế Sơn', 'QL'),
-('SonPT', '134324', 'con cho', 'KH');
+('1', '$2y$10$rwvbdoTfNOJWg26Izqojner5TNuefLYgya4Dchg4g.qyEndR0Y7TO', 'con cho', 'KH'),
+('ADMIN', '$2y$10$MTjfobhCzCfPXAZwEjM7TO/FKnKeR98gsKES66tmgwZ9vLX1qm23q', 'Phạm Thế Sơn', 'QL'),
+('duong', '$2y$10$U3wztjiSRQG5Bx4Hz4EXXeY5IPtfAcux2vxpyiK1JGdrhlaqzwfa6', 'Đỗ Cảnh Dương', 'KH'),
+('son', '$2y$10$kMjNA2NpEM8wwMOh2pglWOB/PuqXigjYMUmh9ABxHLSnoEqN9B7kO', 'Phạm Thế Sơn', 'KH');
 
 --
 -- Chỉ mục cho các bảng đã đổ
 --
 
 --
+-- Chỉ mục cho bảng `chisodiencu`
+--
+ALTER TABLE `chisodiencu`
+  ADD PRIMARY KEY (`MaKH`);
+
+--
 -- Chỉ mục cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
   ADD PRIMARY KEY (`MaHD`),
-  ADD KEY `MaKH` (`MaKH`);
+  ADD KEY `MaKH` (`MaKH`),
+  ADD KEY `Số tiền/ Kwh` (`SoTien/Kwh`);
 
 --
 -- Chỉ mục cho bảng `khachhang`
 --
 ALTER TABLE `khachhang`
   ADD PRIMARY KEY (`MaKH`),
+  ADD UNIQUE KEY `MaThe_2` (`MaThe`),
   ADD KEY `MaThe` (`MaThe`);
 
 --
@@ -222,6 +274,12 @@ ALTER TABLE `thongtinthe`
   ADD PRIMARY KEY (`MaThe`);
 
 --
+-- Chỉ mục cho bảng `trangthaisodien`
+--
+ALTER TABLE `trangthaisodien`
+  ADD PRIMARY KEY (`SoTien/Kwh`);
+
+--
 -- Chỉ mục cho bảng `user`
 --
 ALTER TABLE `user`
@@ -232,10 +290,17 @@ ALTER TABLE `user`
 --
 
 --
+-- Các ràng buộc cho bảng `chisodiencu`
+--
+ALTER TABLE `chisodiencu`
+  ADD CONSTRAINT `chisodiencu_ibfk_1` FOREIGN KEY (`MaKH`) REFERENCES `khachhang` (`MaKH`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Các ràng buộc cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
-  ADD CONSTRAINT `hoadon_ibfk_1` FOREIGN KEY (`MaKH`) REFERENCES `khachhang` (`MaKH`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `hoadon_ibfk_1` FOREIGN KEY (`MaKH`) REFERENCES `khachhang` (`MaKH`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `hoadon_ibfk_2` FOREIGN KEY (`SoTien/Kwh`) REFERENCES `trangthaisodien` (`SoTien/Kwh`);
 
 --
 -- Các ràng buộc cho bảng `khachhang`

@@ -1,12 +1,13 @@
 <?php
-    include '../../FormDangNhap/connect.php';
+    include '../../connect.php';
     $username = $_POST['username'];
     $password = $_POST['mkhau'];
     $confimPW = $_POST['confimMK'];
     $name = $_POST['name'];    
+    $hashpass=password_hash($password,PASSWORD_DEFAULT);
     if($password == $confimPW)
     {
-        $query1="INSERT INTO user VALUES('".$username."','".$password."','".$name."','KH')";
+        $query1="INSERT INTO user VALUES('".$username."','".$hashpass."','".$name."','KH')";
         if(isset($_POST['username']) && isset($_POST['mkhau']) && isset($_POST['confimMK']) && isset($_POST['name']))
         {
             if(empty($_POST['username']) || empty($_POST['mkhau']) || empty($_POST['confimMK']) || empty($_POST['name']))
