@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php
+session_start();
+if (!isset($_SESSION['lv']) || ($_SESSION['lv'] != 'QL'))
+{
+ header("Location:../../index.php");
+exit();}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
