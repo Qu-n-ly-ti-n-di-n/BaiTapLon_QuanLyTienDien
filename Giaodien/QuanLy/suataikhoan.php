@@ -158,7 +158,7 @@
         </div>
         <div class="box-content">
 			<?php
-				include '../../FormDangNhap/connect.php';
+				include '../../connect.php';
 				$userID = $_GET['id'];
 				$sql = "SELECT * FROM user Where userID = '".$userID."'";
 				$result = mysqli_query($connect,$sql);

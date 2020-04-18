@@ -158,7 +158,7 @@
 					</div>
 					<div class="box-content">
 					<?php
-						include '../../FormDangNhap/connect.php';
+						include '../../connect.php';
 						$mahd = $_GET['id'];
 						$sql = "SELECT * FROM hoadon Where MaHD = '".$mahd."'";
 						$result = mysqli_query($connect,$sql);

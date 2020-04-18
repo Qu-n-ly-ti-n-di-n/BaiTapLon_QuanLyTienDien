@@ -1,5 +1,5 @@
 <?php 
-    include '../../FormDangNhap/connect.php';
+    include '../../connect.php';
     if(isset($_POST['MaQL']) && isset($_POST['name']) && isset($_POST['ngaysinh'])&& isset($_POST['quequan']) && isset($_POST['SDT']))
     {
         $update = "UPDATE quanly SET MaQL = '".$_POST['MaQL']."', TenQL = '".$_POST['name']."', NgaySinh ='".$_POST['ngaysinh']."', DiaChi = '".$_POST['quequan']."', SDT ='".$_POST['SDT']."' where MaQL ='". $_GET['id']."'";     

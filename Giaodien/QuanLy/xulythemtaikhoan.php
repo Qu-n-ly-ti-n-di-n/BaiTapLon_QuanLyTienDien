@@ -1,5 +1,5 @@
 <?php
-    include '../../FormDangNhap/connect.php';
+    include '../../connect.php';
     $username = $_POST['username'];
     $password = $_POST['mkhau'];
     $confimPW = $_POST['confimMK'];

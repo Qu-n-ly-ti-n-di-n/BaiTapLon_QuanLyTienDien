@@ -157,7 +157,7 @@
 					</div>
 					<div class="box-content">
 					<?php
-						include '../../FormDangNhap/connect.php';
+						include '../../connect.php';
 						$makh = $_GET['id'];
 						$sql = "SELECT * FROM khachhang Where MaKH = '".$makh."'";
 						$result = mysqli_query($connect,$sql);

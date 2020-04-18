@@ -207,7 +207,7 @@
 									if ($_FILES["file"]["size"] > 0) {
 										
 										$file = fopen($fileName, "r");
-										include '../../FormDangNhap/connect.php';									
+										include '../../connect.php';									
 										while (($column = fgetcsv($file, 10000, ",")) !== FALSE) {
 											
 											//lấy số tiền trên 1 số điện

@@ -169,7 +169,7 @@
 							  </thead>   
 							  <tbody>
 							  <?php
-									include '../../FormDangNhap/connect.php';
+									include '../../connect.php';
 									$sql = "SELECT * FROM quanly";
 									$result = mysqli_query($connect,$sql);
 									if(mysqli_num_rows($result)>0)

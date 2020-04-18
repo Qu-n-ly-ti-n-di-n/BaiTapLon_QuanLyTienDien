@@ -1,5 +1,5 @@
 <?php
-    include '../../FormDangNhap/connect.php';
+    include '../../connect.php';
     //lấy số tiền trên 1 số điện
     $sql = "SELECT * FROM trangthaisodien";
 	$result = mysqli_query($connect,$sql);

@@ -1,5 +1,5 @@
 <?php 
-include '../../FormDangNhap/connect.php';
+include '../../connect.php';
 if(isset($_GET['id'])){
     $makh=$_GET['id'];
     $query="delete from khachhang where MaKH='$makh'";

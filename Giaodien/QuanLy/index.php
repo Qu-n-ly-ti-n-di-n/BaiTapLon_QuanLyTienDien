@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION['lv']) || ($_SESSION['lv'] != 'QL'))
 {
- header("Location:../index.php");
+ header("Location:../../index.php");
 exit();}
 ?>
   

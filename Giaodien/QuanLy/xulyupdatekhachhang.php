@@ -1,5 +1,5 @@
 <?php
-    include '../../FormDangNhap/connect.php';
+    include '../../connect.php';
     $makh = $_POST['makh'];
     $ten = $_POST['ten'];
     $ngaysinh = $_POST['ngaysinh'];

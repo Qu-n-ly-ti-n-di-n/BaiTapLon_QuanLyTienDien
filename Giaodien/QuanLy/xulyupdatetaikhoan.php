@@ -1,5 +1,5 @@
 <?php 
-    include '../../FormDangNhap/connect.php';
+    include '../../connect.php';
     $hashpass=password_hash($_POST['mkhau'],PASSWORD_DEFAULT);
     if(isset($_POST['userID']) && isset($_POST['mkhau']) && isset($_POST['name']))
     {
