@@ -5,12 +5,12 @@
 	$result = mysqli_query($connect,$sql);
     $row =mysqli_fetch_assoc($result)
     //lấy chỉ sô điện cũ
-    $makh = $_POST['MaKH'];
-    $sql1 = "SELECT * FROM chisodiencu where MaKH = $makh";
+    $makh = $_POST['makh'];
+    $sql1 = "SELECT * FROM chisodiencu where MaKH = '$makh'";
     $result1 = mysqli_query($connect,$sql1);
     $row1 =mysqli_fetch_assoc($result1)
     //
-    $mahd = $_POST['MaHD'];
+    $mahd = $_POST['mahd'];
     $ngayphaithanhtoan = $_POST['ngayphaithanhtoan'];
     $ngaythanhtoan = "";
     $chisocu = $row1['chisocu'];
@@ -21,9 +21,9 @@
     $trangthai = "Chưa đóng";     
     $query1="INSERT INTO hoadon VALUES('".$mahd."','".$makh."','".$ngayphaithanhtoan."','".$ngaythanhtoan."',".$chisocu.",".$chisomoi.",".$soKwh.",".$sotienKwh.",".$tongtien.",'".$trangthai."')";
     $query2="UPDATE chisodiencu SET chisocu = $chisomoi WHERE MaKH = '$makh'";
-        if(isset($_POST['MaHD']) && isset($_POST['MaKH']) && isset($_POST['ngayphaithanhtoan']) && isset($_POST['chisomoi']))
+        if(isset($_POST['mahd']) && isset($_POST['makh']) && isset($_POST['ngayphaithanhtoan']) && isset($_POST['chisomoi']))
         {
-            if(empty($_POST['MaHD']) || empty($_POST['MaKH']) || empty($_POST['ngayphaithanhtoan']) || empty($_POST['chisomoi']))
+            if(empty($_POST['mahd']) || empty($_POST['makh']) || empty($_POST['ngayphaithanhtoan']) || empty($_POST['chisomoi']))
             {
                 echo "Mời bạn nhập đầy đủ thông tin .<a href='javascript: history.go(-1)'>Trở lại</a>"; 
                 exit();

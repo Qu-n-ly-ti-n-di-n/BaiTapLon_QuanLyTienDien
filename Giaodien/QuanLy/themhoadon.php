@@ -161,14 +161,14 @@
                             <table>
                                 <tr> 
                                     <td>Mã HĐ</td>
-                                    <td> <input type="text" name="MaHD" value="">
+                                    <td> <input type="text" name="mahd" value="">
                                     </td>
                                 </tr>
 
                                 
                                 <tr>
                                     <td>Mã KH </td>
-                                    <td> <input type="text" name="MaKH" value=""></td>
+                                    <td> <input type="text" name="makh" value=""></td>
 								</tr>
 								<tr>
                                     <td>Ngày phải thanh toán</td>
@@ -181,7 +181,7 @@
                                 												
                                 <tr><td></td>
                                     <td colspan=2>
-                                    <input id="btnChapNhan" type="submit" value="Thêm hóa đơn" name="them"/>
+                                    <input id="btnChapNhan" type="submit" value="Thêm hóa đơn" name="them">
                                     </td>
                                     
                                 </tr>
