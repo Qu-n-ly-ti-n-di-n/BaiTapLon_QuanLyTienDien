@@ -1,11 +1,11 @@
-
-<!DOCTYPE html><?php
+<?php
 session_start();
 if (!isset($_SESSION['lv']) || ($_SESSION['lv'] != 'QL'))
 {
  header("Location:../../index.php");
 exit();}
 ?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	
@@ -305,6 +305,15 @@ exit();}
 		<script src="js/retina.js"></script>
 
 		<script src="js/custom.js"></script>
+		<script>
+           
+		   function logout(){
+			   var r = confirm("Bạn thật sự muốn thoát");
+			   if (r == true) {
+					window.location="logout.php";
+			 }
+		   }
+		   </script>
 	<!-- end: JavaScript-->
 	
 </body>
