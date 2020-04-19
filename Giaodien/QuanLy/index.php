@@ -62,7 +62,7 @@ exit();}
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="index.html"><span>Quản lý tiền điện</span></a>
+				<a class="brand" href="#"><span>Quản lý tiền điện</span></a>
 								
 				<!-- start: Header Menu -->
 				<div class="nav-no-collapse header-nav">
@@ -85,7 +85,7 @@ exit();}
 						<!-- end: Notifications Dropdown -->
 						<!-- start: Message Dropdown -->
 						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+							<a class="btn dropdown-toggle" data-toggle="dropdown" href="sendmail.php">
 								<i class="icon-envelope"></i>
 								
 							</a>
