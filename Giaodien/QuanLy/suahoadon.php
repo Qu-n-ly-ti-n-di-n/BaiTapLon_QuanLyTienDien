@@ -123,6 +123,7 @@ exit();}
 						<li><a href="form.html"><i class="icon-edit"></i><span class="hidden-tablet"> Forms</span></a></li>
 						<li><a href="hoadon.php"><i class="icon-align-justify"></i><span class="hidden-tablet">Hóa đơn</span></a></li>
 						<li><a href="khachhang.php"><i class="icon-folder-open"></i><span class="hidden-tablet">Khách hàng</span></a></li>
+						<li><a href="trangthaisodien.php"><i class="icon-folder-open"></i><span class="hidden-tablet">Gia Điện</span></a></li>
 					</ul>
 				</div>
 			</div>
