@@ -82,10 +82,7 @@ exit();}
 						<!-- end: Notifications Dropdown -->
 						<!-- start: Message Dropdown -->
 						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="icon-envelope"></i>
-								
-							</a>
+						<a class="btn dropdown-toggle"  href="sendmail.php"><i class="icon-envelope"></i></a>
 							
 						</li>
 						

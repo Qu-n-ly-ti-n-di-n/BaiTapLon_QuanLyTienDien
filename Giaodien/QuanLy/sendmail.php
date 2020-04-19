@@ -23,10 +23,14 @@
                                         if( $success == true )
                                         {
                                             echo "Đã gửi mail thành công...";
+                                            echo "<a href='javascript: history.go(-1)'>Trở lại</a>"; 
+                                            exit();
                                         }
                                         else
                                         {
                                               echo "Không gửi đi được...";
+                                              echo "<a href='javascript: history.go(-1)'>Trở lại</a>"; 
+                                            exit();
                                         }
                                     
  
