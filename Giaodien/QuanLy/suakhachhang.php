@@ -122,6 +122,7 @@ exit();}
 						<li><a href="quanly.php"><i class="icon-tasks"></i><span class="hidden-tablet">Quản lý</span></a></li>
 						<li><a href="hoadon.php"><i class="icon-align-justify"></i><span class="hidden-tablet">Hóa đơn</span></a></li>
 						<li><a href="khachhang.php"><i class="icon-folder-open"></i><span class="hidden-tablet">Khách hàng</span></a></li>
+						<li><a href="trangthaisodien.php"><i class="icon-folder-open"></i><span class="hidden-tablet">Gia Điện</span></a></li>
 					</ul>
 				</div>
 			</div>
