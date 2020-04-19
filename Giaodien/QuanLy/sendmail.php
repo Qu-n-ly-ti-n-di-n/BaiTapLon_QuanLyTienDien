@@ -1,5 +1,5 @@
-<?php
-									include '../../connect.php';
+<?php                                  
+                                    include '../../connect.php';
 									$sql = "SELECT Email FROM khachhang";
 									$result = mysqli_query($connect,$sql);
 									if(mysqli_num_rows($result)>0)
@@ -13,8 +13,8 @@
                                    
                                         }}
                                         $to      = "$emai";
-                                        $subject = "Tiêu đề email";
-                                        $message = "Nội dung email";
+                                        $subject = "Thông báo nộp tiền điện";
+                                        $message = "Đã đến thời gian nộp tiền điện tháng này. Bạn bắt đầu nộp bắt đầu từ hôm nay";
                                         $headers  =  "From:bomditimvk02@gmail.com" . "\r\n".
                                         "CC: somebodyelse@example.com";
                                     

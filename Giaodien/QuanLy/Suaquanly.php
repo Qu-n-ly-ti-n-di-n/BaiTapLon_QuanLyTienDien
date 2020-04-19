@@ -82,7 +82,7 @@ exit();}
 						<!-- end: Notifications Dropdown -->
 						<!-- start: Message Dropdown -->
 						<li class="dropdown hidden-phone">
-						<a class="btn dropdown-toggle"  href="sendmail.php"><i class="icon-envelope"></i></a>
+						<a class="btn dropdown-toggle"  onclick="sendmail()"><i class="icon-envelope"></i></a>
 							
 						</li>
 						
@@ -322,6 +322,12 @@ exit();}
 			   var r = confirm("Bạn thật sự muốn thoát");
 			   if (r == true) {
 					window.location="logout.php";
+			 }
+		   }
+		   function sendmail(){
+			   var r = confirm("Bạn thật sự muốn gửi mail chưa");
+			   if (r == true) {
+					window.location="sendmail.php";
 			 }
 		   }
 		   </script>
