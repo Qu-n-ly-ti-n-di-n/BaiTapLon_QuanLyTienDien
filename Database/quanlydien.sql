@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 18, 2020 lúc 04:14 PM
+-- Thời gian đã tạo: Th4 19, 2020 lúc 06:14 PM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.2.29
 
@@ -37,7 +37,7 @@ CREATE TABLE `chisodiencu` (
 --
 
 INSERT INTO `chisodiencu` (`MaKH`, `chisocu`) VALUES
-('duong', 50),
+('duong', 100),
 ('son', 0);
 
 -- --------------------------------------------------------
@@ -65,7 +65,7 @@ CREATE TABLE `hoadon` (
 
 INSERT INTO `hoadon` (`MaHD`, `MaKH`, `NgayPhaiThanhToan`, `NgayThanhToan`, `ChiSoCu`, `ChiSoMoi`, `SoKwh`, `SoTien/Kwh`, `TongTien`, `TrangThai`) VALUES
 ('1', 'duong', '2020-05-01', '0000-00-00', 0, 30, 30, 1500, 45000, 'Chưa đóng'),
-('2', 'duong', '2020-06-01', '0000-00-00', 30, 50, 20, 1500, 30000, 'Chưa đóng');
+('2', 'duong', '2020-06-01', '0000-00-00', 30, 100, 70, 1500, 105000, 'Chưa đóng');
 
 -- --------------------------------------------------------
 
@@ -88,8 +88,8 @@ CREATE TABLE `khachhang` (
 --
 
 INSERT INTO `khachhang` (`MaKH`, `TenKH`, `NgaySinh`, `Email`, `DiaChi`, `SDT`, `MaThe`) VALUES
-('duong', 'Đỗ Cảnh Dương', '1995-02-20', 'DuongDo@gmail.com', 'Nam Định', '2312234234', '123'),
-('son', 'Phạm Thế Sơn', '1999-01-15', 'Pamson@gmail.com', 'Nam Định', '1312313', '23');
+('duong', 'Đỗ Cảnh Dương', '1995-02-20', 'duonghanu789@gmail.com', 'Nam Định', '2312234234', '123'),
+('son', 'Phạm Thế Sơn', '1999-01-15', 'bomditimvk02@gmail.com', 'Nam Định', '1312313', '23');
 
 --
 -- Bẫy `khachhang`
@@ -204,7 +204,7 @@ CREATE TABLE `trangthaisodien` (
 --
 
 INSERT INTO `trangthaisodien` (`SoTien/Kwh`) VALUES
-(1500);
+(3000);
 
 -- --------------------------------------------------------
 
@@ -226,8 +226,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`userID`, `passWord`, `name`, `role`) VALUES
 ('1', '$2y$10$rwvbdoTfNOJWg26Izqojner5TNuefLYgya4Dchg4g.qyEndR0Y7TO', 'con cho', 'KH'),
 ('ADMIN', '$2y$10$MTjfobhCzCfPXAZwEjM7TO/FKnKeR98gsKES66tmgwZ9vLX1qm23q', 'Phạm Thế Sơn', 'QL'),
-('duong', '$2y$10$U3wztjiSRQG5Bx4Hz4EXXeY5IPtfAcux2vxpyiK1JGdrhlaqzwfa6', 'Đỗ Cảnh Dương', 'KH'),
-('son', '$2y$10$kMjNA2NpEM8wwMOh2pglWOB/PuqXigjYMUmh9ABxHLSnoEqN9B7kO', 'Phạm Thế Sơn', 'KH');
+('duong', 'duong', 'Đỗ Cảnh Dương', 'KH');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -299,8 +298,7 @@ ALTER TABLE `chisodiencu`
 -- Các ràng buộc cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
-  ADD CONSTRAINT `hoadon_ibfk_1` FOREIGN KEY (`MaKH`) REFERENCES `khachhang` (`MaKH`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `hoadon_ibfk_2` FOREIGN KEY (`SoTien/Kwh`) REFERENCES `trangthaisodien` (`SoTien/Kwh`);
+  ADD CONSTRAINT `hoadon_ibfk_1` FOREIGN KEY (`MaKH`) REFERENCES `khachhang` (`MaKH`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `khachhang`
