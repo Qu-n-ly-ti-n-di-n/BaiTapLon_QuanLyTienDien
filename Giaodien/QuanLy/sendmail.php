@@ -15,8 +15,7 @@
                                         $to      = "$emai";
                                         $subject = "Thông báo nộp tiền điện";
                                         $message = "Đã đến thời gian nộp tiền điện tháng này. Bạn bắt đầu nộp bắt đầu từ hôm nay";
-                                        $headers  =  "From:bomditimvk02@gmail.com" . "\r\n".
-                                        "CC: somebodyelse@example.com";
+                                        $headers  =  "From:bomditimvk02@gmail.com" . "\r\n";
                                     
                                         $success = mail ($to,$subject,$message,$headers);
                                     
