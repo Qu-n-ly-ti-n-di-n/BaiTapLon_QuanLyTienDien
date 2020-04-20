@@ -145,7 +145,7 @@ exit();}
 					<a href="index.php">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
-				<li><a href="quanly.php">Quản lý</a></li>
+				<li><a href="quanly.php">Giá điện</a></li>
 			</ul>
 
 			
@@ -153,7 +153,7 @@ exit();}
 			<div class="row-fluid sortable">		
 				<div class="box span12">
 					<div class="box-header" data-original-title>
-						<h2><i class="halflings-icon white user"></i><span class="break"></span>Thông tin quản lý</h2>
+						<h2><i class="halflings-icon white user"></i><span class="break"></span>Giá điện</h2>
 						<div class="box-icon">
 							<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
 							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
@@ -167,20 +167,17 @@ exit();}
 									$result = mysqli_query($connect,$sql);
 									if(mysqli_num_rows($result)>0)
 									{
-										while($row =mysqli_fetch_assoc($result))
-										{
+										$row =mysqli_fetch_assoc($result);
+								
 									
 							?>
 						<form method="post" action="xulysuasodien.php">
-                            <table>
-                               >
-
-                                
-                                <tr>
-                                    <td>Gía Điện</td>
-                                    <td> <input type="text" name="sd" value="<?php echo $row['SoTien/Kwh']?>"></td>
-								</tr>
-								
+                            <table>                        
+								<tr> 
+                                    <td>Giá điện </td>
+                                    <td> <input type="text" name="sd" value="<?php echo $row['SoTien/Kwh']?> ">
+                                    </td>
+                                </tr>
                                 <tr><td></td>
                                     <td colspan=2>
                                     <input id="btnChapNhan" type="submit" value="Sửa thông tin" name="sua">
@@ -189,14 +186,14 @@ exit();}
                                 </tr>
                                 <tr>
                                     <td colspan=2>
-                                    <a href="quanly.php">Quay lại trang quản lý</a>
+                                    <a href="trangthaisodien.php">Quay lại trang quản lý</a>
                                     
                                     </td></tr>
                             </table>
                             
                         </form>
 						<?php
-										}
+										
 									}
 									else
 									{

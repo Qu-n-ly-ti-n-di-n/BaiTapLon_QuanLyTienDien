@@ -145,7 +145,7 @@ exit();}
 					<a href="index.php">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
-				<li><a href="taikhoan.php">Gía Điện</a></li>
+				<li><a href="quanly.php">Giá điện</a></li>
 			</ul>
 
 			
@@ -153,7 +153,7 @@ exit();}
 				<div class="row-fluid sortable">		
 					<div class="box span12">
 						<div class="box-header" data-original-title>
-							<h2><i class="halflings-icon white user"></i><span class="break"></span>Gía Điên</h2>
+							<h2><i class="halflings-icon white user"></i><span class="break"></span>Giá điện</h2>
 							<div class="box-icon">
 								<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
 								<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
@@ -161,15 +161,16 @@ exit();}
 							</div>
 						</div>
 						<div class="box-content">
-							<table class="table table-striped table-bordered bootstrap-datatable datatable">
+							<table class="table table-striped table-bordered">
 							  <thead>
 								  <tr>
-									  <th>SÔ Tiền</th>
-									
+									  <th>Số điện</th>
+									  
 								  </tr>
 							  </thead>   
 							  <tbody>
-								<?php
+							  <?php
+							  /*
 									include '../../connect.php';
 									$sql = "SELECT * FROM trangthaisodien";
 									$result = mysqli_query($connect,$sql);
@@ -181,7 +182,7 @@ exit();}
 											$user=$row['SoTien/Kwh'];
 											$_SESSION['sd'] = $row['SoTien/Kwh'];
 										
-								?>
+								
 											<tr>
 												<td><?php echo $user?></td>
 												
@@ -193,16 +194,44 @@ exit();}
 													
 												</td>
 											</tr>
-								<?php
+								
 										}
 									}
-								
+									*/
 								?>
-								
-							  </tbody>
-                          </table>    
-						 
-                                  
+							  <?php
+									include '../../connect.php';
+									$sql = "SELECT * FROM trangthaisodien";
+									$result = mysqli_query($connect,$sql);
+									if(mysqli_num_rows($result)>0)
+									{
+										$row =mysqli_fetch_assoc($result);
+										$user=$row['SoTien/Kwh'];
+										$_SESSION['sd'] = $row['SoTien/Kwh'];
+								?>
+								<tr>
+									<td><?php echo $user?></td>								
+									<td class="center">
+										
+										<a class="btn btn-info" href="suasodien.php?id='<?php echo $row['SoTien/Kwh']?>'">
+											<i class="halflings-icon white edit"></i>  
+										</a>
+										
+                                    </td>
+                                    
+								</tr>
+								<?php
+									
+									}
+									else
+									{
+										echo('No value!');
+									}
+								?>
+                              </tbody>
+                              
+                          </table>     
+                          
 						</div>
 					</div><!--/span-->
 				
