@@ -4,7 +4,6 @@ if (!isset($_SESSION['lv']) || ($_SESSION['lv'] != 'KH'))
 {
  header("Location:../../index.php");
 exit();}
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +11,7 @@ exit();}
 	
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<title>Duong seo khong so ai ??</title>
+	<title>Bootstrap Metro Dashboard by Dennis Ji for ARM demo</title>
 	<meta name="description" content="Bootstrap Metro Dashboard">
 	<meta name="author" content="Dennis Ji">
 	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
@@ -60,23 +59,16 @@ exit();}
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="#"><span>Quản lý tiền điện</span></a>
+				<a class="brand" href="index.html"><span>Quản lý tiền điện</span></a>
 								
 				<!-- start: Header Menu -->
 				<div class="nav-no-collapse header-nav">
 					<ul class="nav pull-right">
 						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle"  href="dangnhapthe.php">
-								<i class="icon-credit-card"></i>
-
-							</a>
-							
-						</li>
-						<li class="dropdown hidden-phone">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
 								<i class="icon-bell"></i>
-
 							</a>
+								
 							
 						</li>
 						<!-- start: Notifications Dropdown -->
@@ -89,14 +81,15 @@ exit();}
 						</li>
 						<!-- end: Notifications Dropdown -->
 						<!-- start: Message Dropdown -->
-						<li class="dropdown hidden-phone">						
-							<a class="btn dropdown-toggle" ><i class="icon-envelope"></i></a>
+						<li class="dropdown hidden-phone">
+						<a class="btn dropdown-toggle" ><i class="icon-envelope"></i></a>
+							
 						</li>
 						
 						<!-- start: User Dropdown -->
 						<li class="dropdown">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="halflings-icon white user"></i>
+								<i class="halflings-icon white user"></i> <?php echo $_SESSION['name']; ?>
 								<span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu">
@@ -124,14 +117,12 @@ exit();}
 			<div id="sidebar-left" class="span2">
 				<div class="nav-collapse sidebar-nav">
 				<ul class="nav nav-tabs nav-stacked main-menu">
-						<li><a href="index.php"><i class="icon-home"></i><span class="hidden-tablet">Trang chủ</span></a></li>	
-						<li><a href="hoadonchuanhap.php"><i class="icon-tasks"></i><span class="hidden-tablet">Hóa đơn</span></a></li>
-						
+						<li><a href="index.php"><i class="icon-home"></i><span class="hidden-tablet">Trang chủ</span></a></li>						
+						<li><a href="hoadonchuanhap.php"><i class="icon-align-justify"></i><span class="hidden-tablet">Hóa đơn</span></a></li>		
 					</ul>
 				</div>
 			</div>
 			<!-- end: Main Menu -->
-			
 			
 			<noscript>
 				<div class="alert alert-block span10">
@@ -143,77 +134,77 @@ exit();}
 			<!-- start: Content -->
 			<div id="content" class="span10">
 			
-			
+						
 			<ul class="breadcrumb">
 				<li>
 					<i class="icon-home"></i>
-					<a href="trangchuchuanhap.html">Home</a> 
+					<a href="index.php">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
-				<li><a href="#">Dashboard</a></li>
+				<li><a href="khachhang.php">Khách hàng</a></li>
 			</ul>
 
 			
-			<div class="row-fluid">
-				
-				<div class="box black span4" onTablet="span6" onDesktop="span4">
-					<div class="box-header">
-						<h2><i class="halflings-icon white list"></i><span class="break"></span>Note</h2>
-						<div class="box-icon">
-							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
-							<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+	
+				<div class="row-fluid sortable">		
+					<div class="box span12">
+						<div class="box-header" data-original-title>
+							<h2><i class="halflings-icon white user"></i><span class="break"></span>Thông tin</h2>
+							<div class="box-icon">
+								<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+								<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+								<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+							</div>
 						</div>
-					</div>
-					<div class="box-content">
-						<ul class="dashboard-list metro">
-							<li>
-								<a href="#">
-									<i class="icon-arrow-up green"></i>                               
-									<strong style="font-size:16px">Tiền Điện tháng này là :<?php echo $_SESSION['sd']; ?>/Kwh</strong>
-									                                   
-								</a>
-
-							</li>
-							<li>
-								<a href="#">
-									<i class="icon-arrow-up green"></i>                               
-									<strong></strong>
-									                                   
-								</a>
-								
-							</li>
-						 
-						</ul>
-					</div>
-				</div><!--/span-->
-				
-				<div class="box black span4" onTablet="span6" onDesktop="span4">
-					<div class="box-header">
-						<h2><i class="halflings-icon white user"></i><span class="break"></span>Thông tin</h2>
-						<div class="box-icon">
-							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
-							<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+						<div class="box-content">
+							<table class="table table-striped table-bordered bootstrap-datatable datatable">
+							  <thead>
+								  <tr>
+									  <th>Mã khách hàng</th>
+									  <th>Tên khách hàng</th>
+									  <th>Ngày sinh</th>
+									  <th>Email</th>
+									  <th>Địa chỉ</th>
+									  <th>SDT</th>
+                                      <th>Mã thẻ</th>                          
+								  </tr>
+							  </thead>   
+							  <tbody>
+							  <?php
+									include '../../connect.php';
+									$sql = "SELECT * FROM khachhang WHERE MaKH = '".$_SESSION['username']."'";
+									$result = mysqli_query($connect,$sql);
+									if(mysqli_num_rows($result)>0)
+									{
+										while($row =mysqli_fetch_assoc($result))
+										{
+									
+								?>
+								<tr>
+									<td><?php echo $row['MaKH']?></td>
+									<td class="center"><?php echo $row['TenKH']?></td>
+									<td class="center"><?php echo $row['NgaySinh']?></td>
+									<td class="center"><?php echo $row['Email']?></td>
+									<td class="center"><?php echo $row['DiaChi']?></td>
+									<td class="center"><?php echo $row['SDT']?></td>
+                                    <th><?php echo $row['MaThe']?></th>							            
+								</tr>
+								<?php
+										}
+									}
+									else
+									{
+										echo('No value!');
+									}
+								?>
+							  </tbody>
+                          </table>                                						  	 
 						</div>
-					</div>
-					<div class="box-content">
-						<ul class="dashboard-list metro">
-							
-							<li class="blue">
-								<a href="#">
-									<img class="avatar" alt="Dennis Ji" src="img/avatar.jpg">
-								</a>
-								<strong>Name:</strong> <?php echo $_SESSION['name']; ?><br>
-								<strong>Since:</strong> Jul 25, 2012 11:09<br>
-								<strong>Status:</strong> Updated                                 
-							</li>
-						</ul>
-					</div>
-				</div><!--/span-->
+					</div><!--/span-->
 				
-			
-			
-			
-			
+				</div><!--/row-->
+	
+		
 
 	</div><!--/.fluid-container-->
 	
@@ -234,7 +225,6 @@ exit();}
 			<a href="#" class="btn btn-primary">Save changes</a>
 		</div>
 	</div>
-	
 	<div class="common-modal modal fade" id="common-Modal1" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-content">
 			<ul class="list-inline item-details">
@@ -243,7 +233,6 @@ exit();}
 			</ul>
 		</div>
 	</div>
-	
 	<div class="clearfix"></div>
 	
 	<footer>
@@ -256,7 +245,7 @@ exit();}
 	</footer>
 	
 	<!-- start: JavaScript-->
-
+		
 		<script src="js/jquery-1.9.1.min.js"></script>
 	<script src="js/jquery-migrate-1.0.0.min.js"></script>
 	
@@ -313,16 +302,13 @@ exit();}
 		<script src="js/custom.js"></script>
 		<script>
            
-            function logout(){
-                var r = confirm("Bạn thật sự muốn thoát");
-                if (r == true) {
-                     window.location="../QuanLy/logout.php";
-              }
-            }
-			
-		   }
-            </script>
-	
+		   function logout(){
+			   var r = confirm("Bạn thật sự muốn thoát");
+			   if (r == true) {
+					window.location="logout.php";
+			 }
+		   }		   
+		   </script>
 	<!-- end: JavaScript-->
 	
 </body>
