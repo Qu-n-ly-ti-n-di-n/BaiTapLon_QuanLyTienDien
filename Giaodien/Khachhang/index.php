@@ -201,7 +201,7 @@ exit();}
 						</ul>
 					</div>
 				</div><!--/span-->			
-	</div><!--/.fluid-container-->
+		</div><!--/.fluid-container-->
 	
 			<!-- end: Content -->
 		</div><!--/#content.span10-->

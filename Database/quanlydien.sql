@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 26, 2020 lúc 09:00 AM
+-- Thời gian đã tạo: Th4 26, 2020 lúc 11:54 AM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.2.29
 
@@ -37,7 +37,7 @@ CREATE TABLE `chisodiencu` (
 --
 
 INSERT INTO `chisodiencu` (`MaKH`, `chisocu`) VALUES
-('duong', 100),
+('duong', 50),
 ('son', 50);
 
 -- --------------------------------------------------------
@@ -64,9 +64,9 @@ CREATE TABLE `hoadon` (
 --
 
 INSERT INTO `hoadon` (`MaHD`, `MaKH`, `NgayPhaiThanhToan`, `NgayThanhToan`, `ChiSoCu`, `ChiSoMoi`, `SoKwh`, `SoTien/Kwh`, `TongTien`, `TrangThai`) VALUES
-('1', 'duong', '2020-05-01', '0000-00-00', 0, 30, 30, 1500, 45000, 'Chưa đóng'),
-('2', 'duong', '2020-06-01', '0000-00-00', 30, 100, 70, 1500, 105000, 'Chưa đóng'),
-('3', 'son', '2020-05-01', '0000-00-00', 0, 50, 50, 1500, 75000, 'Chưa đóng');
+('1', 'duong', '2020-05-01', '0000-00-00', 0, 30, 30, 3000, 90000, 'Chưa đóng'),
+('2', 'duong', '2020-06-01', '0000-00-00', 30, 50, 20, 3000, 60000, 'Chưa đóng'),
+('3', 'son', '2020-05-01', '0000-00-00', 0, 50, 50, 3000, 150000, 'Chưa đóng');
 
 -- --------------------------------------------------------
 
@@ -89,7 +89,7 @@ CREATE TABLE `khachhang` (
 --
 
 INSERT INTO `khachhang` (`MaKH`, `TenKH`, `NgaySinh`, `Email`, `DiaChi`, `SDT`, `MaThe`) VALUES
-('duong', 'Đỗ Cảnh Dương', '1995-02-20', 'duonghanu789@gmail.com', 'Nam Định', '2312234234', '123'),
+('duong', 'Đỗ Cảnh Dương', '1995-02-15', 'duonghanu789@gmail.com', 'Nam Định', '1312312312', '123'),
 ('son', 'Phạm Thế Sơn', '1999-01-15', 'bomditimvk02@gmail.com', 'Nam Định', '1312313', '23');
 
 --
@@ -100,7 +100,7 @@ CREATE TRIGGER `delete_kh_user` AFTER DELETE ON `khachhang` FOR EACH ROW DELETE 
 $$
 DELIMITER ;
 DELIMITER $$
-CREATE TRIGGER `insert_MaThe_Thongtinthe` AFTER INSERT ON `khachhang` FOR EACH ROW INSERT INTO thongtinthe VALUES(NEW.MaThe,NEW.TenKH,NEW.NgaySinh,NEW.DiaChi,NEW.SDT)
+CREATE TRIGGER `insert_Thongtinthe_kh` AFTER INSERT ON `khachhang` FOR EACH ROW INSERT INTO thongtinthe VALUES(NEW.MaThe,NEW.TenKH,NEW.NgaySinh,NEW.DiaChi, NEW.SDT)
 $$
 DELIMITER ;
 DELIMITER $$
@@ -162,6 +162,7 @@ DELIMITER ;
 CREATE TABLE `taikhoannganhang` (
   `MaThe` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Mã thẻ',
   `MatKhau` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Mật khẩu',
+  `TenChuThe` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Tên chủ thẻ',
   `TongTien` int(11) NOT NULL COMMENT 'Tổng số tiền trong thẻ'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -169,8 +170,9 @@ CREATE TABLE `taikhoannganhang` (
 -- Đang đổ dữ liệu cho bảng `taikhoannganhang`
 --
 
-INSERT INTO `taikhoannganhang` (`MaThe`, `MatKhau`, `TongTien`) VALUES
-('123', '123', 0);
+INSERT INTO `taikhoannganhang` (`MaThe`, `MatKhau`, `TenChuThe`, `TongTien`) VALUES
+('123', '123', 'Đỗ Cảnh Dương', 0),
+('23', '23', 'Phạm Thế Sơn', 0);
 
 -- --------------------------------------------------------
 
@@ -191,8 +193,16 @@ CREATE TABLE `thongtinthe` (
 --
 
 INSERT INTO `thongtinthe` (`MaThe`, `TenChuThe`, `NgaySinh`, `DiaChi`, `SDT`) VALUES
-('123', 'ádaada', '2020-04-09', 'ádasdasd', 'ádasdas'),
-('23', '1asdas', '2020-04-09', 'ádasdasd', '2312234234');
+('123', 'Đỗ Cảnh Dương', '1995-02-15', 'Nam Định', '1312312312'),
+('23', 'Phạm Thế Sơn', '1999-01-15', 'Nam Định', '1312313');
+
+--
+-- Bẫy `thongtinthe`
+--
+DELIMITER $$
+CREATE TRIGGER `insert_TaikhoanNganKhang_thongtin` AFTER INSERT ON `thongtinthe` FOR EACH ROW INSERT INTO taikhoannganhang VALUES(NEW.MaThe,NEW.MaThe,NEW.TenChuThe,0)
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -209,7 +219,7 @@ CREATE TABLE `trangthaisodien` (
 --
 
 INSERT INTO `trangthaisodien` (`SoTien/Kwh`) VALUES
-(1500);
+(3000);
 
 -- --------------------------------------------------------
 
@@ -230,8 +240,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`userID`, `passWord`, `name`, `role`) VALUES
 ('ADMIN', '$2y$10$i2ZWSavm2T6D7zm8PI3Aj.8f1Zs.3kE.YXfqNhaGxIDswg0eEKtsW', 'Phạm Thế Sơn', 'QL'),
-('duong', '$2y$10$ILuzLjYSqZPt3OIbvPi9jOj32MDYKQ3B9WvSPBNg3IoOeYcFCkGXm', 'Đỗ Cảnh Dương', 'KH'),
-('son', '$2y$10$qZgiz21/f/sMDF0zYyOzVOhvdQ1Q5XymBINJ9qiMMHQinZtdmra/C', 'Phạm Thế Sơn', 'KH');
+('duong', '$2y$10$T1UEX9BI0JoiHkRQUtHUveNRfTYTNZlatrE3sfIjaS2bAX6ZEMI0i', 'Đỗ Cảnh Dương', 'KH'),
+('son', '$2y$10$jvaAS0cudA0x4WVOmrkHtu.e8JtC4MH8zNmRD6KuaGkV0IesgFV0K', 'Phạm Thế Sơn', 'KH');
 
 --
 -- Chỉ mục cho các bảng đã đổ

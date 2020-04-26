@@ -142,7 +142,7 @@
 			
 			<div class="row-fluid">
 				
-				<div class="box black span4" onTablet="span6" onDesktop="span4">
+				<div class="box black span12" onTablet="span12" onDesktop="span12">
 					<div class="box-header">
 						<h2><i class="halflings-icon white list"></i><span class="break"></span>Note</h2>
 						<div class="box-icon">
@@ -155,10 +155,18 @@
 							<li>
 								<a href="#">
 									<i class="icon-arrow-up green"></i>                               
-									<strong style="font-size:16px">Tiền Điện tháng này là :<?php echo $_SESSION['sd']; ?>/Kwh</strong>
+									<strong style="font-size:16px ; color:green">Giá điện tháng này là :<?php echo $_SESSION['sd']; ?>/Kwh</strong>
 									                                   
 								</a>
 
+							</li>
+							<li>
+								<a href="#">
+									<i class="icon-arrow-up green"></i>                               
+									<strong style="font-size:16px; color:red">Mời bạn đăng nhập tài khoản ngân hàng để thanh toán tiền điện</strong>
+									                                   
+								</a>
+								
 							</li>
 							<li>
 								<a href="#">
@@ -168,40 +176,18 @@
 								</a>
 								
 							</li>
-						 
-						</ul>
-					</div>
-				</div><!--/span-->
-				
-				<div class="box black span4" onTablet="span6" onDesktop="span4">
-					<div class="box-header">
-						<h2><i class="halflings-icon white user"></i><span class="break"></span>Thông tin</h2>
-						<div class="box-icon">
-							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
-							<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
-						</div>
-					</div>
-					<div class="box-content">
-						<ul class="dashboard-list metro">
-							
-							<li class="blue">
+							<li>
 								<a href="#">
-									<img class="avatar" alt="Dennis Ji" src="img/avatar.jpg">
+									<i class="icon-arrow-up green"></i>                               
+									<strong></strong>
+									                                   
 								</a>
-								<strong>Name:</strong> <?php echo $_SESSION['name']; ?><br>
-								<strong>Since:</strong> Jul 25, 2012 11:09<br>
-								<strong>Status:</strong> Updated                                 
+								
 							</li>
 						</ul>
 					</div>
-				</div><!--/span-->
-				
-			
-			
-			
-			
-
-	</div><!--/.fluid-container-->
+				</div><!--/span-->			
+		</div><!--/.fluid-container-->
 	
 			<!-- end: Content -->
 		</div><!--/#content.span10-->
