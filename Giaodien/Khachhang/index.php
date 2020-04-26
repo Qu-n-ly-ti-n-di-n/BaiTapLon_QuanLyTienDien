@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['lv']) || ($_SESSION['lv'] != 'KH'))
+{
+ header("Location:../../index.php");
+exit();}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -303,6 +311,17 @@
 		<script src="js/retina.js"></script>
 
 		<script src="js/custom.js"></script>
+		<script>
+           
+            function logout(){
+                var r = confirm("Bạn thật sự muốn thoát");
+                if (r == true) {
+                     window.location="../QuanLy/logout.php";
+              }
+            }
+			
+		   }
+            </script>
 	
 	<!-- end: JavaScript-->
 	
