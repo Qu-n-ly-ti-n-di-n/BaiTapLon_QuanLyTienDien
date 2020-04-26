@@ -1,10 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['lv']) || ($_SESSION['lv'] != 'QL'))
-{
- header("Location:../../index.php");
-exit();}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -117,9 +110,9 @@ exit();}
 			<div id="sidebar-left" class="span2">
 				<div class="nav-collapse sidebar-nav">
 				<ul class="nav nav-tabs nav-stacked main-menu">
-                    <li><a href="Trangchudanhap.html"><i class="icon-home"></i><span class="hidden-tablet">Trang chủ</span></a></li>	
-						<li><a href="hoadondanhap.html"><i class="icon-align-justify"></i><span class="hidden-tablet">Hóa đơn</span></a></li>
-						<li><a href="Thongtinthe.html"><i class="icon-info-sign"></i><span class="hidden-tablet">Thông tin thẻ</span></a></li>
+                    <li><a href="Trangchudanhap.php"><i class="icon-home"></i><span class="hidden-tablet">Trang chủ</span></a></li>	
+						<li><a href="hoadondanhap.php"><i class="icon-align-justify"></i><span class="hidden-tablet">Hóa đơn</span></a></li>
+						<li><a href="Thongtinthe.php"><i class="icon-info-sign"></i><span class="hidden-tablet">Thông tin thẻ</span></a></li>
 						
 
 					</ul>
@@ -144,7 +137,7 @@ exit();}
 					<a href="index.php">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
-				<li><a href="thongtinthe.html">Thông tin thẻ</a></li>
+				<li><a href="thongtinthe.php">Thông tin thẻ</a></li>
 			</ul>
 
 			
@@ -162,26 +155,31 @@ exit();}
         </div>
         <div class="box-content">
             <form method="post" >
-                <table>
-                    <tr>
-                        <td>Tên chủ thẻ</td>
-                        <td> <input type="text" name="username" value="">
-                    </tr>
-                    <tr> 
-                        <td>Mã thẻ</td>
-                        <td> <input type="text" name="username" value="">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Mật khẩu </td>
-                        <td> <input type="text" name="mkhau" value= ""></td>
-                    </tr>
-                
-					                  
-                    
-                    
-                </table>
+                <table class="table table-striped table-bordered bootstrap-datatable datatable">
+					<thead>
+						<tr>
+							<th>Chủ thẻ</th>
+							<th>Mã thẻ</th>
+							<th>Mật khẩu thẻ</th>
+										
+							
+						   
+						</tr>
+					</thead>   
+					<tbody>
+					
+					  <tr>
+						  <td></td>
+						  <td class="center"></td>
+						  <td class="center"></td>
+						  
+						  
+						  
+					  </tr>
+					  
+					</tbody>
+					
+				</table>   
                 
             </form>
 
@@ -283,21 +281,7 @@ exit();}
 		<script src="js/retina.js"></script>
 
 		<script src="js/custom.js"></script>
-		<script>
-           
-		   function logout(){
-			   var r = confirm("Bạn thật sự muốn thoát");
-			   if (r == true) {
-					window.location="logout.php";
-			 }
-		   }
-		   function sendmail(){
-			   var r = confirm("Bạn thật sự muốn gửi mail chưa");
-			   if (r == true) {
-					window.location="sendmail.php";
-			 }
-		   }
-		   </script>
+		
 	<!-- end: JavaScript-->
 	
 </body>
