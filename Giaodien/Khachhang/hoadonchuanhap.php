@@ -1,10 +1,4 @@
-<?php
-session_start();
-if (!isset($_SESSION['lv']) || ($_SESSION['lv'] != 'QL'))
-{
- header("Location:../../index.php");
-exit();}
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,6 +59,13 @@ exit();}
 				<div class="nav-no-collapse header-nav">
 					<ul class="nav pull-right">
 						<li class="dropdown hidden-phone">
+							<a class="btn dropdown-toggle"  href="dangnhapthe.php">
+								<i class="icon-credit-card"></i>
+
+							</a>
+							
+						</li>
+						<li class="dropdown hidden-phone">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
 								<i class="icon-bell"></i>
 							</a>
@@ -96,7 +97,7 @@ exit();}
 								<li class="dropdown-menu-title">
  									<span>Account Settings</span>
 								</li>
-								<li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
+								<li><a href="dangnhapthe.php"><i class="halflings-icon user"></i> Đăng nhập thẻ</a></li>
 								<li><a href="#" onclick="logout()" id ="logout"><i class="halflings-icon off"></i> Logout</a></li>
 							</ul>
 						</li>
@@ -117,8 +118,8 @@ exit();}
 			<div id="sidebar-left" class="span2">
 				<div class="nav-collapse sidebar-nav">
 					<ul class="nav nav-tabs nav-stacked main-menu">
-						<li><a href="trangchuchuanhap.html"><i class="icon-home"></i><span class="hidden-tablet">Trang chủ</span></a></li>	
-						<li><a href="hoadonchuanhap.html"><i class="icon-align-justify"></i><span class="hidden-tablet">Hóa đơn</span></a></li>
+						<li><a href="trangchuchuanhap.php"><i class="icon-home"></i><span class="hidden-tablet">Trang chủ</span></a></li>	
+						<li><a href="hoadonchuanhap.php"><i class="icon-align-justify"></i><span class="hidden-tablet">Hóa đơn</span></a></li>
 						
 					</ul>
 				</div>
@@ -142,7 +143,7 @@ exit();}
 					<a href="index.php">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
-				<li><a href="hoadon.php">Hóa đơn</a></li>
+				<li><a href="hoadonchuanhap.php">Hóa đơn</a></li>
 			</ul>
 
 			
@@ -195,9 +196,7 @@ exit();}
                               </tbody>
                               
                           </table>   
-						  <form action="themhoadon.php">
-						  <input id="btnthemhoadon" class="btn btn-primary" type="submit" value="Thêm hóa đơn" >
-						  </form>  
+						    
 						</div>
 					</div><!--/span-->
 				
@@ -299,21 +298,7 @@ exit();}
 		<script src="js/retina.js"></script>
 
 		<script src="js/custom.js"></script>
-		<script>
-           
-		   function logout(){
-			   var r = confirm("Bạn thật sự muốn thoát");
-			   if (r == true) {
-					window.location="logout.php";
-			 }
-		   }    
-		   function sendmail(){
-			   var r = confirm("Bạn thật sự muốn gửi mail chưa");
-			   if (r == true) {
-					window.location="sendmail.php";
-			 }
-		   }
-		   </script>
+		
 	<!-- end: JavaScript-->
 	
 </body>

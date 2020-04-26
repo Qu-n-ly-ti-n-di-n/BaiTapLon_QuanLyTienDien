@@ -1,17 +1,10 @@
-<?php
-session_start();
-if (!isset($_SESSION['lv']) || ($_SESSION['lv'] != 'QL'))
-{
- header("Location:../../index.php");
-exit();}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<title>Bootstrap Metro Dashboard by Dennis Ji for ARM demo</title>
+	<title>Duong seo khong so ai ??</title>
 	<meta name="description" content="Bootstrap Metro Dashboard">
 	<meta name="author" content="Dennis Ji">
 	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
@@ -59,16 +52,23 @@ exit();}
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="index.html"><span>Quản lý tiền điện</span></a>
+				<a class="brand" href="#"><span>Quản lý tiền điện</span></a>
 								
 				<!-- start: Header Menu -->
 				<div class="nav-no-collapse header-nav">
 					<ul class="nav pull-right">
 						<li class="dropdown hidden-phone">
+							<a class="btn dropdown-toggle"  href="dangnhapthe.php">
+								<i class="icon-credit-card"></i>
+
+							</a>
+							
+						</li>
+						<li class="dropdown hidden-phone">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
 								<i class="icon-bell"></i>
+
 							</a>
-								
 							
 						</li>
 						<!-- start: Notifications Dropdown -->
@@ -81,22 +81,21 @@ exit();}
 						</li>
 						<!-- end: Notifications Dropdown -->
 						<!-- start: Message Dropdown -->
-						<li class="dropdown hidden-phone">
-						<a class="btn dropdown-toggle" onclick="sendmail()"><i class="icon-envelope"></i></a>
-							
+						<li class="dropdown hidden-phone">						
+							<a class="btn dropdown-toggle"  onclick="sendmail()"><i class="icon-envelope"></i></a>
 						</li>
 						
 						<!-- start: User Dropdown -->
 						<li class="dropdown">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="halflings-icon white user"></i> <?php echo $_SESSION['name']; ?>
+								<i class="halflings-icon white user"></i>
 								<span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu">
 								<li class="dropdown-menu-title">
  									<span>Account Settings</span>
 								</li>
-								<li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
+								<li><a href="dangnhapthe.php"><i class="halflings-icon user"></i> Đăng nhập thẻ</a></li>
 								<li><a href="#" onclick="logout()" id ="logout"><i class="halflings-icon off"></i> Logout</a></li>
 							</ul>
 						</li>
@@ -117,14 +116,14 @@ exit();}
 			<div id="sidebar-left" class="span2">
 				<div class="nav-collapse sidebar-nav">
 				<ul class="nav nav-tabs nav-stacked main-menu">
-						<li><a href="trangchuchuanhap.html"><i class="icon-home"></i><span class="hidden-tablet">Trang chủ</span></a></li>	
-						<li><a href="hoadonchuanhap.html"><i class="icon-align-justify"></i><span class="hidden-tablet">Hóa đơn</span></a></li>
+						<li><a href="trangchuchuanhap.php"><i class="icon-home"></i><span class="hidden-tablet">Trang chủ</span></a></li>	
+						<li><a href="hoadonchuanhap.php"><i class="icon-tasks"></i><span class="hidden-tablet">Hóa đơn</span></a></li>
 						
-
 					</ul>
 				</div>
 			</div>
 			<!-- end: Main Menu -->
+			
 			
 			<noscript>
 				<div class="alert alert-block span10">
@@ -136,60 +135,77 @@ exit();}
 			<!-- start: Content -->
 			<div id="content" class="span10">
 			
-						
+			
 			<ul class="breadcrumb">
 				<li>
 					<i class="icon-home"></i>
-					<a href="index.php">Home</a> 
+					<a href="trangchuchuanhap.html">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
-				<li><a href="dangkithe.html">Đăng ký thẻ</a></li>
+				<li><a href="#">Dashboard</a></li>
 			</ul>
 
 			
-	
+			<div class="row-fluid">
 				
-<div class="row-fluid sortable">		
-    <div class="box span12">
-        <div class="box-header" data-original-title>
-            <h2><i class="halflings-icon white user"></i><span class="break"></span>Đăng ký thẻ</h2>
-            <div class="box-icon">
-                <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
-                <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
-                <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
-            </div>
-        </div>
-        <div class="box-content">
-            <form method="post" >
-                <table>
-                    <tr> 
-                        <td>Mã thẻ </td>
-                        <td> <input type="text" name="username" value="">
-                        </td>
-                    </tr>
+				<div class="box black span4" onTablet="span6" onDesktop="span4">
+					<div class="box-header">
+						<h2><i class="halflings-icon white list"></i><span class="break"></span>Note</h2>
+						<div class="box-icon">
+							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+							<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+						</div>
+					</div>
+					<div class="box-content">
+						<ul class="dashboard-list metro">
+							<li>
+								<a href="#">
+									<i class="icon-arrow-up green"></i>                               
+									<strong style="font-size:16px">Tiền Điện tháng này là :<?php echo $_SESSION['sd']; ?>/Kwh</strong>
+									                                   
+								</a>
 
-                    <tr>
-                        <td>Mật khẩu </td>
-                        <td> <input type="text" name="mkhau" value= ""></td>
-                    </tr>
-                    <tr>
-                        <td>Nhập lại mật khẩu </td>
-                        <td> <input type="text" name="confimMK" value= ""></td>
-                    </tr>
-					                  
-                    <tr><td></td>
-                        <td colspan=2>
-                        <input id="btnChapNhan" type="submit" value="Đăng kí" name="dk">
-                        </td>
-                    </tr>
-                    
-                </table>
-                
-            </form>
-
-</div><!--/row-->
-	
-		
+							</li>
+							<li>
+								<a href="#">
+									<i class="icon-arrow-up green"></i>                               
+									<strong></strong>
+									                                   
+								</a>
+								
+							</li>
+						 
+						</ul>
+					</div>
+				</div><!--/span-->
+				
+				<div class="box black span4" onTablet="span6" onDesktop="span4">
+					<div class="box-header">
+						<h2><i class="halflings-icon white user"></i><span class="break"></span>Thông tin</h2>
+						<div class="box-icon">
+							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+							<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+						</div>
+					</div>
+					<div class="box-content">
+						<ul class="dashboard-list metro">
+							
+							<li class="blue">
+								<a href="#">
+									<img class="avatar" alt="Dennis Ji" src="img/avatar.jpg">
+								</a>
+								<strong>Name:</strong> <?php echo $_SESSION['name']; ?><br>
+								<strong>Since:</strong> Jul 25, 2012 11:09<br>
+								<strong>Status:</strong> Updated                                 
+							</li>
+						</ul>
+					</div>
+				</div><!--/span-->
+				
+			
+			
+			
+			
 
 	</div><!--/.fluid-container-->
 	
@@ -210,6 +226,7 @@ exit();}
 			<a href="#" class="btn btn-primary">Save changes</a>
 		</div>
 	</div>
+	
 	<div class="common-modal modal fade" id="common-Modal1" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-content">
 			<ul class="list-inline item-details">
@@ -218,6 +235,7 @@ exit();}
 			</ul>
 		</div>
 	</div>
+	
 	<div class="clearfix"></div>
 	
 	<footer>
@@ -285,24 +303,8 @@ exit();}
 		<script src="js/retina.js"></script>
 
 		<script src="js/custom.js"></script>
-		<script>
-           
-		   function logout(){
-			   var r = confirm("Bạn thật sự muốn thoát");
-			   if (r == true) {
-					window.location="logout.php";
-			 }
-		   }
-		   function sendmail(){
-			   var r = confirm("Bạn thật sự muốn gửi mail chưa");
-			   if (r == true) {
-					window.location="sendmail.php";
-			 }
-		   }
-		   </script>
+	
 	<!-- end: JavaScript-->
 	
 </body>
 </html>
-
-
