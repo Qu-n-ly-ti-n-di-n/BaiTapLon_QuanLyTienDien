@@ -124,7 +124,7 @@ exit();}
 			<div id="sidebar-left" class="span2">
 				<div class="nav-collapse sidebar-nav">
 				<ul class="nav nav-tabs nav-stacked main-menu">
-						<li><a href="trangchuchuanhap.php"><i class="icon-home"></i><span class="hidden-tablet">Trang chủ</span></a></li>	
+						<li><a href="index.php"><i class="icon-home"></i><span class="hidden-tablet">Trang chủ</span></a></li>	
 						<li><a href="hoadonchuanhap.php"><i class="icon-tasks"></i><span class="hidden-tablet">Hóa đơn</span></a></li>
 						
 					</ul>
