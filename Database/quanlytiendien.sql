@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 19, 2020 lúc 06:14 PM
+-- Thời gian đã tạo: Th4 26, 2020 lúc 09:00 AM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.2.29
 
@@ -38,7 +38,7 @@ CREATE TABLE `chisodiencu` (
 
 INSERT INTO `chisodiencu` (`MaKH`, `chisocu`) VALUES
 ('duong', 100),
-('son', 0);
+('son', 50);
 
 -- --------------------------------------------------------
 
@@ -65,7 +65,8 @@ CREATE TABLE `hoadon` (
 
 INSERT INTO `hoadon` (`MaHD`, `MaKH`, `NgayPhaiThanhToan`, `NgayThanhToan`, `ChiSoCu`, `ChiSoMoi`, `SoKwh`, `SoTien/Kwh`, `TongTien`, `TrangThai`) VALUES
 ('1', 'duong', '2020-05-01', '0000-00-00', 0, 30, 30, 1500, 45000, 'Chưa đóng'),
-('2', 'duong', '2020-06-01', '0000-00-00', 30, 100, 70, 1500, 105000, 'Chưa đóng');
+('2', 'duong', '2020-06-01', '0000-00-00', 30, 100, 70, 1500, 105000, 'Chưa đóng'),
+('3', 'son', '2020-05-01', '0000-00-00', 0, 50, 50, 1500, 75000, 'Chưa đóng');
 
 -- --------------------------------------------------------
 
@@ -96,6 +97,10 @@ INSERT INTO `khachhang` (`MaKH`, `TenKH`, `NgaySinh`, `Email`, `DiaChi`, `SDT`, 
 --
 DELIMITER $$
 CREATE TRIGGER `delete_kh_user` AFTER DELETE ON `khachhang` FOR EACH ROW DELETE FROM user WHERE userID = OLD.MaKH
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `insert_MaThe_Thongtinthe` AFTER INSERT ON `khachhang` FOR EACH ROW INSERT INTO thongtinthe VALUES(NEW.MaThe,NEW.TenKH,NEW.NgaySinh,NEW.DiaChi,NEW.SDT)
 $$
 DELIMITER ;
 DELIMITER $$
@@ -204,7 +209,7 @@ CREATE TABLE `trangthaisodien` (
 --
 
 INSERT INTO `trangthaisodien` (`SoTien/Kwh`) VALUES
-(3000);
+(1500);
 
 -- --------------------------------------------------------
 
@@ -224,9 +229,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userID`, `passWord`, `name`, `role`) VALUES
-('1', '$2y$10$rwvbdoTfNOJWg26Izqojner5TNuefLYgya4Dchg4g.qyEndR0Y7TO', 'con cho', 'KH'),
-('ADMIN', '$2y$10$MTjfobhCzCfPXAZwEjM7TO/FKnKeR98gsKES66tmgwZ9vLX1qm23q', 'Phạm Thế Sơn', 'QL'),
-('duong', 'duong', 'Đỗ Cảnh Dương', 'KH');
+('ADMIN', '$2y$10$i2ZWSavm2T6D7zm8PI3Aj.8f1Zs.3kE.YXfqNhaGxIDswg0eEKtsW', 'Phạm Thế Sơn', 'QL'),
+('duong', '$2y$10$ILuzLjYSqZPt3OIbvPi9jOj32MDYKQ3B9WvSPBNg3IoOeYcFCkGXm', 'Đỗ Cảnh Dương', 'KH'),
+('son', '$2y$10$qZgiz21/f/sMDF0zYyOzVOhvdQ1Q5XymBINJ9qiMMHQinZtdmra/C', 'Phạm Thế Sơn', 'KH');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -301,16 +306,16 @@ ALTER TABLE `hoadon`
   ADD CONSTRAINT `hoadon_ibfk_1` FOREIGN KEY (`MaKH`) REFERENCES `khachhang` (`MaKH`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Các ràng buộc cho bảng `khachhang`
---
-ALTER TABLE `khachhang`
-  ADD CONSTRAINT `khachhang_ibfk_1` FOREIGN KEY (`MaThe`) REFERENCES `thongtinthe` (`MaThe`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Các ràng buộc cho bảng `taikhoannganhang`
 --
 ALTER TABLE `taikhoannganhang`
   ADD CONSTRAINT `taikhoannganhang_ibfk_1` FOREIGN KEY (`MaThe`) REFERENCES `thongtinthe` (`MaThe`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `thongtinthe`
+--
+ALTER TABLE `thongtinthe`
+  ADD CONSTRAINT `thongtinthe_ibfk_1` FOREIGN KEY (`MaThe`) REFERENCES `khachhang` (`MaThe`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
