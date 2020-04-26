@@ -164,7 +164,7 @@
 
                     <tr>
                         <td>Mật khẩu </td>
-                        <td> <input type="text" name="mkhau" value= ""></td>
+                        <td> <input type="text" name="password" value= ""></td>
                     </tr>
                     
 					                  
@@ -276,7 +276,38 @@
 		<script src="js/retina.js"></script>
 
 		<script src="js/custom.js"></script>
+		<script type="text/javascript">
+		$("#btndangnhap").click(function() {
+			var username=$("#username").val();
+            var password=$("#password").val();
+            var error = $("#error");
+      
+		if (username == "") {
+			error.html("Tên đăng nhập không được để trống");
+			return false;
+		}
 		
+		if (password == "") {
+			error.html("Mật khẩu không được để trống");
+			return false;
+		}
+			$.ajax({
+				url: 'xulydangnhapthe.php',
+				type: 'POST',
+				dataType: 'html',
+				data: {username:username ,password:password},
+				success:function(response){
+					if(response== 1)
+					{
+						window.location="hoadondanhap.php";
+					}
+          else {error.html("Mật khẩu hoặc tài khoản không chính xác !");}
+
+				}
+			})		
+		});
+		
+	</script> 
 	<!-- end: JavaScript-->
 	
 </body>

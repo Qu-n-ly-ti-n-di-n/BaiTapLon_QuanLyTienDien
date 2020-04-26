@@ -14,7 +14,7 @@ if(isset($_GET['id'])){
         }
     }
         if($role=='QL'){
-            echo 'xóa hộ bố m luôn ?? '; ?>
+            echo 'sao xóa được Quản Lý bạn êi?? '; ?>
             <button type="button" onclick="getBack()">Quay lại</button>
  	<script type="text/javascript">
 		function getBack() {
