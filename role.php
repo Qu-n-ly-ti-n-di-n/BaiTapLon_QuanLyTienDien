@@ -5,5 +5,9 @@ if(isset($_SESSION['lv'])){
         header("location:Giaodien/QuanLy/");
         
     }   
+    if($_SESSION['lv'] == 'KH'){
+        header("location:Giaodien/Khachhang/");
+        
+    } 
 }
 ?>

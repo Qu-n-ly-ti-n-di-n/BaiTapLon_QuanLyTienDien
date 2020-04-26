@@ -82,7 +82,7 @@
 						<!-- end: Notifications Dropdown -->
 						<!-- start: Message Dropdown -->
 						<li class="dropdown hidden-phone">						
-							<a class="btn dropdown-toggle"  onclick="sendmail()"><i class="icon-envelope"></i></a>
+							<a class="btn dropdown-toggle" ><i class="icon-envelope"></i></a>
 						</li>
 						
 						<!-- start: User Dropdown -->
