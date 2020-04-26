@@ -1,4 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['lv']) || ($_SESSION['lv'] != 'KH'))
+{
+ header("Location:../../index.php");
+exit();}
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,21 +83,21 @@
 						<!-- end: Notifications Dropdown -->
 						<!-- start: Message Dropdown -->
 						<li class="dropdown hidden-phone">
-						<a class="btn dropdown-toggle" onclick="sendmail()"><i class="icon-envelope"></i></a>
+						<a class="btn dropdown-toggle" ><i class="icon-envelope"></i></a>
 							
 						</li>
 						
 						<!-- start: User Dropdown -->
 						<li class="dropdown">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="halflings-icon white user"></i> 
+								<i class="halflings-icon white user"></i> <?php echo $_SESSION['name']; ?>
 								<span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu">
 								<li class="dropdown-menu-title">
  									<span>Account Settings</span>
 								</li>
-								<li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
+								<li><a href="thongtinkhachhang.php"><i class="halflings-icon user"></i> Profile</a></li>
 								<li><a href="#" onclick="logout()" id ="logout"><i class="halflings-icon off"></i> Logout</a></li>
 							</ul>
 						</li>
@@ -308,6 +315,15 @@
 		});
 		
 	</script> 
+	<script>
+           
+		   function logout(){
+			   var r = confirm("Bạn thật sự muốn thoát");
+			   if (r == true) {
+					window.location="../QuanLy/logout.php";
+			 }
+		   }				   
+		   </script>
 	<!-- end: JavaScript-->
 	
 </body>

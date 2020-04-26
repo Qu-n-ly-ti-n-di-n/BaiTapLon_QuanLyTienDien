@@ -167,7 +167,7 @@ exit();}
 							<li>
 								<a href="#">
 									<i class="icon-arrow-up green"></i>                               
-									<strong style="font-size:16px">Tiền Điện tháng này là :<?php echo $_SESSION['sd']; ?>/Kwh</strong>
+									<strong style="font-size:16px ; color:green">Giá điện tháng này là :<?php echo $_SESSION['sd']; ?>/Kwh</strong>
 									                                   
 								</a>
 
