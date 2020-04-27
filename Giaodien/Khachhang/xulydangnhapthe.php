@@ -9,7 +9,7 @@ session_start();
 		{
             $row=mysqli_fetch_assoc($result);
             $mk=$row['MatKhau'];
-         if($mk==$pw){
+         	if($mk==$pw){
              $_SESSION['mtt']=$mt;
              echo 1;
 

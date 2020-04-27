@@ -63,9 +63,9 @@ exit();}
 				<!-- start: Header Menu -->
 				<div class="nav-no-collapse header-nav">
 					<ul class="nav pull-right">
-						<li class="dropdown hidden-phone">
+					<li class="dropdown hidden-phone">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="icon-bell"></i>
+								19008198
 							</a>
 								
 							
@@ -73,7 +73,7 @@ exit();}
 						<!-- start: Notifications Dropdown -->
 						<li class="dropdown hidden-phone">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="icon-calendar"></i>
+							<i class="icon-google-plus-sign"></i>
 								
 							</a>
 							
@@ -81,7 +81,7 @@ exit();}
 						<!-- end: Notifications Dropdown -->
 						<!-- start: Message Dropdown -->
 						<li class="dropdown hidden-phone">
-						<a class="btn dropdown-toggle"  onclick="sendmail()"><i class="icon-envelope"></i></a>
+						<a class="btn dropdown-toggle" href="https://www.facebook.com/htrang.05.99"  ><i class="icon-facebook-sign"></i>	</a>
 							
 						</li>
 						
@@ -95,7 +95,7 @@ exit();}
 								<li class="dropdown-menu-title">
  									<span>Account Settings</span>
 								</li>
-								<li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
+								<li><a href="profile.php"><i class="halflings-icon user"></i> Profile</a></li>
 								<li><a href="#" onclick="logout()" id ="logout"><i class="halflings-icon off"></i> Logout</a></li>
 							</ul>
 						</li>
@@ -176,27 +176,43 @@ exit();}
 								  </tr>
 							  </thead>   
 							  <tbody>
-							  
+							  <?php
+									include '../../connect.php';
+									$sql = "SELECT * FROM hoadon WHERE MaKH =  '".$_SESSION['username']."'";
+									$result = mysqli_query($connect,$sql);
+									if(mysqli_num_rows($result)>0)
+									{
+										while($row =mysqli_fetch_assoc($result))
+										{
+									
+								?>
 								<tr>
-									<td></td>
-									<td class="center"><?php //echo $row['MaKH']?></td>
-									<td class="center"><?php //echo $row['NgayPhaiThanhToan']?></td>
-									<td class="center"><?php //echo $row['NgayThanhToan']?></td>
-									<td class="center"><?php //echo $row['ChiSoCu']?></td>
-                                    <td class="center"><?php// echo $row['ChiSoMoi']?></td>
-                                    <td class="center"><?php// echo $row['SoKwh']?></td>
-									<td class="center"><?php //echo $row['SoTien/Kwh']?></td>
-									<td class="center"><?php //echo $row['TongTien']?></td>
-                                    <td class="center"></td>
+									<td><?php echo $row['MaHD']?></td>
+									<td class="center"><?php echo $row['MaKH']?></td>
+									<td class="center"><?php echo $row['NgayPhaiThanhToan']?></td>
+									<td class="center"><?php echo $row['NgayThanhToan']?></td>
+									<td class="center"><?php echo $row['ChiSoCu']?></td>
+                                    <td class="center"><?php echo $row['ChiSoMoi']?></td>
+                                    <td class="center"><?php echo $row['SoKwh']?></td>
+									<td class="center"><?php echo $row['SoTien/Kwh']?></td>
+									<td class="center"><?php echo $row['TongTien']?></td>
+									<td class="center"><?php echo $row['TrangThai']?></td>
                                     <td class="center">
-                                        <a class="btn btn-danger" href="#">
+                                        <a class="btn btn-danger" href="XuLyThanhToan.php?id=<?php echo $row['MaHD']?>">
 											<i class="halflings-icon shopping-cart"></i> 
 										</a>
                                     </td>
 									
                                     
 								</tr>
-								
+								<?php
+										}
+									}
+									else
+									{
+										echo('No value!');
+									}
+								?>
                               </tbody>
                               
                           </table>   

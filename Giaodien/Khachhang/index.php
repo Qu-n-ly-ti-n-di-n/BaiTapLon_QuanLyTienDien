@@ -74,23 +74,24 @@ exit();}
 						</li>
 						<li class="dropdown hidden-phone">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="icon-bell"></i>
-
+								19008198
 							</a>
+								
 							
 						</li>
 						<!-- start: Notifications Dropdown -->
 						<li class="dropdown hidden-phone">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="icon-calendar"></i>
+							<i class="icon-google-plus-sign"></i>
 								
 							</a>
 							
 						</li>
 						<!-- end: Notifications Dropdown -->
 						<!-- start: Message Dropdown -->
-						<li class="dropdown hidden-phone">						
-							<a class="btn dropdown-toggle" ><i class="icon-envelope"></i></a>
+						<li class="dropdown hidden-phone">
+						<a class="btn dropdown-toggle" href="https://www.facebook.com/htrang.05.99"  ><i class="icon-facebook-sign"></i>	</a>
+							
 						</li>
 						
 						<!-- start: User Dropdown -->

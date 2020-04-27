@@ -63,9 +63,9 @@ exit();}
 				<!-- start: Header Menu -->
 				<div class="nav-no-collapse header-nav">
 					<ul class="nav pull-right">
-						<li class="dropdown hidden-phone">
+					<li class="dropdown hidden-phone">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="icon-bell"></i>
+								19008198
 							</a>
 								
 							
@@ -73,7 +73,7 @@ exit();}
 						<!-- start: Notifications Dropdown -->
 						<li class="dropdown hidden-phone">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="icon-calendar"></i>
+							<i class="icon-google-plus-sign"></i>
 								
 							</a>
 							
@@ -81,7 +81,7 @@ exit();}
 						<!-- end: Notifications Dropdown -->
 						<!-- start: Message Dropdown -->
 						<li class="dropdown hidden-phone">
-						<a class="btn dropdown-toggle" onclick="sendmail()"><i class="icon-envelope"></i></a>
+						<a class="btn dropdown-toggle" href="https://www.facebook.com/htrang.05.99"  ><i class="icon-facebook-sign"></i>	</a>
 							
 						</li>
 						
@@ -95,7 +95,7 @@ exit();}
 								<li class="dropdown-menu-title">
  									<span>Account Settings</span>
 								</li>
-								<li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
+								<li><a href="profile.php"><i class="halflings-icon user"></i> Profile</a></li>
 								<li><a href="#" onclick="logout()" id ="logout"><i class="halflings-icon off"></i> Logout</a></li>
 							</ul>
 						</li>
@@ -116,7 +116,7 @@ exit();}
 			<div id="sidebar-left" class="span2">
 				<div class="nav-collapse sidebar-nav">
 				<ul class="nav nav-tabs nav-stacked main-menu">
-                    <li><a href="Trangchudanhap.php"><i class="icon-home"></i><span class="hidden-tablet">Trang chủ</span></a></li>	
+                    	<li><a href="Trangchudanhap.php"><i class="icon-home"></i><span class="hidden-tablet">Trang chủ</span></a></li>	
 						<li><a href="hoadondanhap.php"><i class="icon-align-justify"></i><span class="hidden-tablet">Hóa đơn</span></a></li>
 						<li><a href="Thongtinthe.php"><i class="icon-info-sign"></i><span class="hidden-tablet">Thông tin thẻ</span></a></li>
 						
@@ -163,32 +163,55 @@ exit();}
             <form method="post" >
                 <table class="table table-striped table-bordered bootstrap-datatable datatable">
 					<thead>
-						<tr>
-							<th>Chủ thẻ</th>
+						<tr>							
 							<th>Mã thẻ</th>
-							<th>Mật khẩu thẻ</th>
-										
-							
+							<th>Tên chủ thẻ</th>
+							<th>Ngày sinh</th>
+							<th>Địa chỉ</th>		
+							<th>Số điện thoại</th>
+							<th>Tổng số tiền trong thẻ</th>
 						   
 						</tr>
 					</thead>   
 					<tbody>
-					
+					<?php
+						include '../../connect.php';
+						$sql = "SELECT * FROM thongtinthe WHERE MaThe =  '".$_SESSION['mtt']."'";
+						$result = mysqli_query($connect,$sql);
+						//
+						$sql1 = "SELECT * FROM taikhoannganhang WHERE MaThe =  '".$_SESSION['mtt']."'";
+						$result1 = mysqli_query($connect,$sql1);
+						if(mysqli_num_rows($result)>0 && mysqli_num_rows($result1)>0 )
+						{
+							$row =mysqli_fetch_assoc($result);							
+							$row1 =mysqli_fetch_assoc($result1);
+									
+					?>
 					  <tr>
-						  <td></td>
-						  <td class="center"></td>
-						  <td class="center"></td>
-						  
+					  	  <td class="center"><?php echo $row['MaThe']?></td>
+						  <td class="center"><?php echo $row['TenChuThe']?></td>	
+						  <td class="center"><?php echo $row['NgaySinh']?></td>
+						  <td class="center"><?php echo $row['DiaChi']?></td>						  
+						  <td class="center"><?php echo $row['SDT']?></td>
+						  <td class="center"><?php echo $row1['TongTien']?></td>
 						  
 						  
 					  </tr>
-					  
+					  <?php
+						
+						}			
+						else
+						{
+							echo('No value!');
+						}
+						?>
 					</tbody>
 					
-				</table>   
-                
-            </form>
-
+				</table>                 
+            </form>	
+			<form action="NapTien.php">
+				<input id="naptien" class="btn btn-primary" type="submit" value="Nạp tiền" >
+			</form> 	
 </div><!--/row-->
 	
 		
