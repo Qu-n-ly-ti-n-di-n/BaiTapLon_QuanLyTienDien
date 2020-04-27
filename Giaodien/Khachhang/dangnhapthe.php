@@ -171,7 +171,7 @@ exit();}
 
                     <tr>
                         <td>Mật khẩu </td>
-                        <td> <input type="text" name="pw" id="password" value= ""></td>
+                        <td> <input type="password" name="pw" id="password" value= ""></td>
                     </tr>
                     
 					                  
