@@ -16,16 +16,8 @@ session_start();
          }
          else{
              echo 0;
-         }
-     
-            
-			
-			
-			
-			
-			}
-			
-	
+         }  	
+		}
 	mysqli_close($connect);
 	mysqli_free_result($result); 
 
