@@ -1,4 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['lv']) || ($_SESSION['lv'] != 'KH'))
+{
+ header("Location:../../index.php");
+exit();}
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,7 +90,7 @@
 						<!-- start: User Dropdown -->
 						<li class="dropdown">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="halflings-icon white user"></i> <?php echo $_SESSION['name']; ?>
+								<i class="halflings-icon white user"></i> <?php echo $_SESSION["name"]; ?>
 								<span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu">

@@ -165,23 +165,24 @@ exit();}
                 <table>
                     <tr> 
                         <td>Mã thẻ </td>
-                        <td> <input type="text" name="username" value="">
+                        <td> <input type="text" name="mt" id="username" value="">
                         </td>
                     </tr>
 
                     <tr>
                         <td>Mật khẩu </td>
-                        <td> <input type="text" name="password" value= ""></td>
+                        <td> <input type="text" name="pw" id="password" value= ""></td>
                     </tr>
                     
 					                  
                     <tr><td></td>
                         <td colspan=2>
-                        <input id="btnChapNhan" type="submit" value="Đăng nhập" name="dk">
+                        <input id="btndangnhap" type="submit" value="Đăng nhập" name="dk">
                         </td>
                     </tr>
                     
                 </table>
+				<div id="error" style="color: red; margin-left:300px; "></div>
                 
             </form>
 
@@ -285,16 +286,16 @@ exit();}
 		<script src="js/custom.js"></script>
 		<script type="text/javascript">
 		$("#btndangnhap").click(function() {
-			var username=$("#username").val();
-            var password=$("#password").val();
+			var mt=$("#username").val();
+            var pw=$("#password").val();
             var error = $("#error");
       
-		if (username == "") {
+		if (mt == "") {
 			error.html("Tên đăng nhập không được để trống");
 			return false;
 		}
 		
-		if (password == "") {
+		if (pw == "") {
 			error.html("Mật khẩu không được để trống");
 			return false;
 		}
@@ -302,11 +303,11 @@ exit();}
 				url: 'xulydangnhapthe.php',
 				type: 'POST',
 				dataType: 'html',
-				data: {username:username ,password:password},
+				data: {mt:mt ,pw:pw},
 				success:function(response){
 					if(response== 1)
 					{
-						window.location="hoadondanhap.php";
+						window.location="Trangchudanhap.php";
 					}
           else {error.html("Mật khẩu hoặc tài khoản không chính xác !");}
 
