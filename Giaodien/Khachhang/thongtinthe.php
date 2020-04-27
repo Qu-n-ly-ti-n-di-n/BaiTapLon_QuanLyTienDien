@@ -287,7 +287,15 @@ exit();}
 		<script src="js/retina.js"></script>
 
 		<script src="js/custom.js"></script>
-		
+		<script>
+           
+            function logout(){
+                var r = confirm("Bạn thật sự muốn thoát");
+                if (r == true) {
+                     window.location="../QuanLy/logout.php";
+              }
+            }				   
+            </script>
 	<!-- end: JavaScript-->
 	
 </body>
