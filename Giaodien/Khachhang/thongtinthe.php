@@ -1,10 +1,8 @@
 <?php
 session_start();
-if (!isset($_SESSION['lv']) || ($_SESSION['lv'] != 'KH'))
-{
- header("Location:../../index.php");
+if (!isset($_SESSION['mtt'])){
+ header("Location:index.php");
 exit();}
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

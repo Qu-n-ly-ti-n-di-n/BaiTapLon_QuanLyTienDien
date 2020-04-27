@@ -1,10 +1,8 @@
 <?php
 session_start();
-if (!isset($_SESSION['lv']) || ($_SESSION['lv'] != 'KH'))
-{
- header("Location:../../index.php");
+if (!isset($_SESSION['mtt'])){
+ header("Location:index.php");
 exit();}
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -181,14 +179,14 @@ exit();}
 							  
 								<tr>
 									<td></td>
-									<td class="center"><?php echo $row['MaKH']?></td>
-									<td class="center"><?php echo $row['NgayPhaiThanhToan']?></td>
-									<td class="center"><?php echo $row['NgayThanhToan']?></td>
-									<td class="center"><?php echo $row['ChiSoCu']?></td>
-                                    <td class="center"><?php echo $row['ChiSoMoi']?></td>
-                                    <td class="center"><?php echo $row['SoKwh']?></td>
-									<td class="center"><?php echo $row['SoTien/Kwh']?></td>
-									<td class="center"><?php echo $row['TongTien']?></td>
+									<td class="center"><?php //echo $row['MaKH']?></td>
+									<td class="center"><?php //echo $row['NgayPhaiThanhToan']?></td>
+									<td class="center"><?php //echo $row['NgayThanhToan']?></td>
+									<td class="center"><?php //echo $row['ChiSoCu']?></td>
+                                    <td class="center"><?php// echo $row['ChiSoMoi']?></td>
+                                    <td class="center"><?php// echo $row['SoKwh']?></td>
+									<td class="center"><?php //echo $row['SoTien/Kwh']?></td>
+									<td class="center"><?php //echo $row['TongTien']?></td>
                                     <td class="center"></td>
                                     <td class="center">
                                         <a class="btn btn-danger" href="#">

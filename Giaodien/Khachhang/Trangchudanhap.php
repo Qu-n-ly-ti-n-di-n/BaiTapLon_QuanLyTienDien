@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['mtt'])){
- header("Location:../../hoadonchuanhap.php");
+ header("Location:index.php");
 exit();}
 ?>
   
@@ -88,7 +88,7 @@ exit();}
 						<!-- start: User Dropdown -->
 						<li class="dropdown">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="halflings-icon white user"></i>
+								<i class="halflings-icon white user"></i><?php echo $_SESSION['name']; ?>
 								<span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu">
@@ -170,7 +170,7 @@ exit();}
 							<li>
 								<a href="#">
 									<i class="icon-arrow-up green"></i>                               
-									<strong style="font-size:16px; color:red">Mời bạn đăng nhập tài khoản ngân hàng để thanh toán tiền điện</strong>
+									<strong style="font-size:16px; color:red">Bạn có thể thanh toán tiền điện</strong>
 									                                   
 								</a>
 								
