@@ -74,7 +74,7 @@ exit();}
 						</li>
 						<li class="dropdown hidden-phone">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="icon-bell"></i>
+								19008198
 							</a>
 								
 							
@@ -82,7 +82,7 @@ exit();}
 						<!-- start: Notifications Dropdown -->
 						<li class="dropdown hidden-phone">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="icon-calendar"></i>
+							<i class="icon-google-plus-sign"></i>
 								
 							</a>
 							
@@ -90,7 +90,7 @@ exit();}
 						<!-- end: Notifications Dropdown -->
 						<!-- start: Message Dropdown -->
 						<li class="dropdown hidden-phone">
-						<a class="btn dropdown-toggle"  onclick="sendmail()"><i class="icon-envelope"></i></a>
+						<a class="btn dropdown-toggle" href="https://www.facebook.com/htrang.05.99"  ><i class="icon-facebook-sign"></i>	</a>
 							
 						</li>
 						
@@ -187,7 +187,7 @@ exit();}
 							  
 							  <?php
 									include '../../connect.php';
-									$sql = "SELECT * FROM hoadon WHERE MaKH =  '".$_SESSION['username']."'";
+									$sql = "SELECT * FROM hoadon WHERE TrangThai = 'Chưa đóng' and MaKH =  '".$_SESSION['username']."'";
 									$result = mysqli_query($connect,$sql);
 									if(mysqli_num_rows($result)>0)
 									{
