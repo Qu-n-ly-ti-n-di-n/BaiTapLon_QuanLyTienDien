@@ -36,11 +36,7 @@
     </div>
     <a id="quenmk" style=" position: relative;;left:300px;bottom:15px" href="quenmk.php">Forget Password</a><br>
     <button type="submit" id ="btndangnhap" class="btn btn-primary" name="btn_dangnhap" style="margin-left:300px">Submit</button>
-                            <div class="text-right phai">
-                                <a href="" id="forgot-password" class=" text-danger ">Quên mật khẩu</a>
-                                <br>
-                                <a href="" class=" text-danger ">Quay về trang chủ</a>
-                            </div>
+                          
                         </form>
                     </div>
                 </div>
